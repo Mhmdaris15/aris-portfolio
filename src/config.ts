@@ -12,7 +12,7 @@ export const config = {
     },
     about: {
         title: "About Me",
-        description: "I am a Software Engineer from Indonesia with 3+ years of experience. I specialize in building full-stack web applications, microservices, and data-driven solutions using Golang, Python, Next.js, and React. My expertise spans from backend systems with Nest.js and Docker to AI-powered applications with TensorFlow and face recognition. I've worked on real-time systems, blockchain-integrated games, and restaurant management platforms. I'm also a 1st Place winner at LKS Data Science West Java Province and a certified CompTIA Linux+ professional. Currently working as a Data Analyst while continuously pushing my engineering skills forward."
+        description: "I’m an AI Systems Engineer focused on building data-driven automation and intelligent applications. My experience spans developing end-to-end systems—from data pipelines and analytics to production-grade automation—primarily using Python, SQL, and cloud data platforms. I’ve worked on real-world business problems, designing scalable workflows and integrating machine learning models to drive decision-making. Currently, I’m advancing into AI engineering by building LLM-powered systems such as RAG pipelines, AI agents, and data copilots, combining strong engineering fundamentals with modern AI capabilities to deliver practical, high-impact solutions."
     },
     experiences: [
         {

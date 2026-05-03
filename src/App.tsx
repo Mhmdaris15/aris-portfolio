@@ -10,7 +10,7 @@ import { LoadingProvider } from "./context/LoadingProvider";
 
 const App = () => {
   return (
-    <BrowserRouter basename="/aris-portfolio">
+    <BrowserRouter>
       <Routes>
         <Route
           path="/"
