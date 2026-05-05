@@ -33,13 +33,15 @@ h6 {
   font-family: "Geist", sans-serif;
 }
 
-body {
+/* Lenis-controlled smooth scroll on the home page only.
+   Standalone pages (/blog, /myworks, /works/:slug) need native scrolling. */
+body.lenis-locked {
   overflow: hidden;
 }
 
 /* Allow scrolling on mobile */
 @media only screen and (max-width: 768px) {
-  body {
+  body.lenis-locked {
     overflow: auto !important;
     height: auto !important;
     min-height: 100vh !important;

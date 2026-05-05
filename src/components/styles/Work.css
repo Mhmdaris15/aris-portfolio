@@ -99,6 +99,33 @@
   width: 90%;
 }
 
+.work-github-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--accentColor);
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+  align-self: flex-start;
+}
+
+.work-github-link:hover {
+  transform: translateX(4px);
+}
+
+.work-cover-link {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.work-cover-link:hover {
+  transform: scale(1.02);
+}
+
 .work-image {
   display: flex;
   width: 100%;

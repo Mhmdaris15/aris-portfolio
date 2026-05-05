@@ -10,6 +10,7 @@ import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import TechStackNew from "./TechStackNew";
 import CallToAction from "./CallToAction";
+import Services from "./Services";
 import setSplitText from "./utils/splitText";
 
 const MainContainer = ({ children }: PropsWithChildren) => {
@@ -30,6 +31,13 @@ const MainContainer = ({ children }: PropsWithChildren) => {
     };
   }, [isDesktopView]);
 
+  useEffect(() => {
+    document.body.classList.add("lenis-locked");
+    return () => {
+      document.body.classList.remove("lenis-locked");
+    };
+  }, []);
+
   return (
     <div className="container-main">
       <Cursor />
@@ -40,6 +48,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
         <Landing />
         <About />
         <WhatIDo />
+        <Services />
         <Career />
         <Work />
         <TechStackNew />

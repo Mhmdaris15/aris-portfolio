@@ -126,6 +126,104 @@
   line-height: 1.5;
 }
 
+.myworks-availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 8px 18px;
+  background: rgba(76, 217, 100, 0.1);
+  border: 1px solid rgba(76, 217, 100, 0.4);
+  color: #4cd964;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.availability-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4cd964;
+  box-shadow: 0 0 8px #4cd964;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+.myworks-card-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--accentColor);
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.myworks-card-link:hover {
+  transform: translateX(4px);
+}
+
+.myworks-cta {
+  text-align: center;
+  margin: 80px auto 0;
+  padding: 60px 30px;
+  max-width: 700px;
+  background: rgba(194, 164, 255, 0.05);
+  border: 1px solid rgba(194, 164, 255, 0.2);
+  border-radius: 20px;
+}
+
+.myworks-cta h2 {
+  font-size: 36px;
+  margin: 0 0 10px;
+  color: #fff;
+}
+
+.myworks-cta p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 28px;
+}
+
+.myworks-cta-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.myworks-cta-btn {
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.myworks-cta-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.myworks-cta-btn.primary {
+  background: var(--accentColor);
+  color: #000;
+  border-color: var(--accentColor);
+}
+
+.myworks-cta-btn.primary:hover {
+  box-shadow: 0 8px 25px rgba(194, 164, 255, 0.4);
+}
+
 /* Responsive */
 @media only screen and (max-width: 768px) {
   .myworks-page {
@@ -138,5 +236,9 @@
 
   .myworks-grid {
     grid-template-columns: 1fr;
+  }
+
+  .myworks-cta h2 {
+    font-size: 28px;
   }
 }

@@ -45,6 +45,41 @@
   font-size: 13px;
   letter-spacing: 0.2px;
 }
+.navbar-availability {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(76, 217, 100, 0.1);
+  border: 1px solid rgba(76, 217, 100, 0.4);
+  color: #4cd964;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, calc(-50% + 30px));
+  white-space: nowrap;
+}
+.navbar-availability-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4cd964;
+  box-shadow: 0 0 6px #4cd964;
+  animation: nav-pulse 2s ease-in-out infinite;
+}
+@keyframes nav-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+@media only screen and (min-width: 900px) {
+  .navbar-availability {
+    display: inline-flex;
+  }
+}
 @media only screen and (min-width: 500px) {
   .header {
     padding: 20px 0px;

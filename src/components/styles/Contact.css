@@ -17,6 +17,49 @@
   margin: 0;
   margin-bottom: 30px;
 }
+.contact-availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  padding: 8px 18px;
+  background: rgba(76, 217, 100, 0.1);
+  border: 1px solid rgba(76, 217, 100, 0.4);
+  color: #4cd964;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  width: fit-content;
+}
+.contact-availability .availability-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4cd964;
+  box-shadow: 0 0 8px #4cd964;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+.contact-hire-btn {
+  display: inline-block;
+  margin: 16px 0;
+  padding: 12px 24px;
+  background: var(--accentColor);
+  color: #000;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  width: fit-content;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.contact-hire-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(194, 164, 255, 0.4);
+}
 .contact-flex {
   display: flex;
   justify-content: space-between;

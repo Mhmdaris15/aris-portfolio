@@ -18,7 +18,6 @@ const Contact = () => {
       },
     });
 
-    // Animate title from bottom
     contactTimeline.fromTo(
       ".contact-section h3",
       {
@@ -33,7 +32,6 @@ const Contact = () => {
       }
     );
 
-    // Animate contact boxes with stagger from bottom
     contactTimeline.fromTo(
       ".contact-box",
       {
@@ -50,7 +48,6 @@ const Contact = () => {
       "-=0.4"
     );
 
-    // Clean up
     return () => {
       contactTimeline.kill();
     };
@@ -60,12 +57,47 @@ const Contact = () => {
     <div className="contact-section section-container" id="contact">
       <div className="contact-container">
         <h3>{config.developer.fullName}</h3>
+
+        {config.availability.open && (
+          <div className="contact-availability">
+            <span className="availability-dot" />
+            {config.availability.label} · {config.availability.responseTime}
+          </div>
+        )}
+
         <div className="contact-flex">
           <div className="contact-box">
             <h4>Email</h4>
             <p>
-              <a href={`mailto:${config.contact.email}`} data-cursor="disable">
+              <a
+                href={`mailto:${config.contact.email}?subject=${encodeURIComponent(
+                  "Project Inquiry"
+                )}`}
+                data-cursor="disable"
+              >
                 {config.contact.email}
+              </a>
+            </p>
+            <h4>WhatsApp</h4>
+            <p>
+              <a
+                href={config.contact.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="disable"
+              >
+                {config.contact.whatsapp}
+              </a>
+            </p>
+            <h4>Telegram</h4>
+            <p>
+              <a
+                href={config.contact.telegramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="disable"
+              >
+                {config.contact.telegram}
               </a>
             </p>
             <h4>Location</h4>
@@ -105,10 +137,20 @@ const Contact = () => {
           </div>
           <div className="contact-box">
             <h2>
-              Designed and Developed <br /> by <span>{config.developer.fullName}</span>
+              Let's build <br />
+              <span>something great</span>
             </h2>
+            <a
+              href={`mailto:${config.contact.email}?subject=${encodeURIComponent(
+                "Project Inquiry"
+              )}`}
+              className="contact-hire-btn"
+              data-cursor="disable"
+            >
+              Start a Project →
+            </a>
             <h5>
-              <MdCopyright /> {new Date().getFullYear()}
+              <MdCopyright /> {new Date().getFullYear()} {config.developer.fullName}
             </h5>
           </div>
         </div>

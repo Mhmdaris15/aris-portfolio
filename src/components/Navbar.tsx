@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import Lenis from "lenis";
+import { config } from "../config";
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -38,10 +39,10 @@ const Navbar = () => {
       let element = elem as HTMLAnchorElement;
       element.addEventListener("click", (e) => {
         if (window.innerWidth > 1024) {
-          e.preventDefault();
           let elem = e.currentTarget as HTMLAnchorElement;
           let section = elem.getAttribute("data-href");
           if (section && lenis) {
+            e.preventDefault();
             const target = document.querySelector(section) as HTMLElement;
             if (target) {
               lenis.scrollTo(target, {
@@ -67,14 +68,22 @@ const Navbar = () => {
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
-          Logo
+          {config.developer.name}
         </a>
+        {config.availability.open && (
+          <span className="navbar-availability" data-cursor="disable">
+            <span className="navbar-availability-dot" />
+            Available for Hire
+          </span>
+        )}
         <a
-          href="mailto:muhammadaris1945@gmail.com"
+          href={`mailto:${config.contact.email}?subject=${encodeURIComponent(
+            "Project Inquiry"
+          )}`}
           className="navbar-connect"
           data-cursor="disable"
         >
-          muhammadaris1945@gmail.com
+          {config.contact.email}
         </a>
         <ul>
           <li>
@@ -83,8 +92,23 @@ const Navbar = () => {
             </a>
           </li>
           <li>
+            <a data-href="#services" href="#services">
+              <HoverLinks text="SERVICES" />
+            </a>
+          </li>
+          <li>
             <a data-href="#work" href="#work">
               <HoverLinks text="WORK" />
+            </a>
+          </li>
+          <li>
+            <a href="/blog">
+              <HoverLinks text="BLOG" />
+            </a>
+          </li>
+          <li>
+            <a href="/resume">
+              <HoverLinks text="RESUME" />
             </a>
           </li>
           <li>

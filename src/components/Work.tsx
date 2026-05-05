@@ -1,16 +1,15 @@
 import "./styles/Work.css";
-import WorkImage from "./WorkImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect } from "react";
 import { config } from "../config";
 import { Link } from "react-router-dom";
+import ProjectCover from "./ProjectCover";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Work = () => {
   useEffect(() => {
-    // Disable pinning on mobile to allow scrolling
     if (window.innerWidth <= 768) return;
 
     let translateX: number = 0;
@@ -49,10 +48,8 @@ const Work = () => {
       ease: "none",
     });
 
-    // Refresh ScrollTrigger after layout settles
     ScrollTrigger.refresh();
 
-    // Clean up
     return () => {
       timeline.kill();
       ScrollTrigger.getById("work")?.kill();
@@ -78,11 +75,27 @@ const Work = () => {
                 </div>
                 <h4>Tools and features</h4>
                 <p>{project.technologies}</p>
+                <Link
+                  to={`/works/${project.slug}`}
+                  className="work-github-link"
+                  data-cursor="disable"
+                >
+                  Read case study →
+                </Link>
               </div>
-              <WorkImage image={project.image} alt={project.title} />
+              <Link
+                to={`/works/${project.slug}`}
+                className="work-cover-link"
+                data-cursor="disable"
+              >
+                <ProjectCover
+                  title={project.title}
+                  category={project.category}
+                  technologies={project.technologies}
+                />
+              </Link>
             </div>
           ))}
-          {/* See All Works Button */}
           <div className="work-box work-box-cta">
             <div className="see-all-works">
               <h3>Want to see more?</h3>
