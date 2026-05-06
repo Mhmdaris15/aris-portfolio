@@ -6,35 +6,42 @@ import {
   HiOutlineGlobeAlt,
   HiOutlinePrinter,
   HiOutlineArrowDownTray,
-  HiOutlineBriefcase,
-  HiOutlineCommandLine,
-  HiOutlineRocketLaunch,
-  HiOutlineAcademicCap,
-  HiOutlineTrophy,
-  HiOutlineDocumentCheck,
-  HiOutlineLanguage,
-  HiOutlineSparkles,
-  HiOutlineCheckBadge
+  HiOutlineSparkles
 } from "react-icons/hi2";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa6";
 import { resume } from "../data/resume";
+import { useLocale } from "../i18n/LocaleContext";
+import { dict, t } from "../i18n/dictionary";
+import LanguageSwitcher from "../components/LanguageSwitcher";
+import "../styles/editorial.css";
 import "./Resume.css";
 
 const Resume = () => {
+  const { locale, href } = useLocale();
   const handlePrint = () => window.print();
 
   const mailto = `mailto:${resume.email}?subject=${encodeURIComponent(
-    "Hello Aris — saw your resume"
+    locale === "ru"
+      ? "Здравствуйте, Арис — посмотрел резюме"
+      : "Hello Aris — saw your resume"
   )}`;
+
+  let sectionCount = 0;
+  const num = () => String(++sectionCount).padStart(2, "0");
 
   return (
     <div className="resume-page">
-      {/* Toolbar — hidden in print */}
+      <div className="grain" />
+
       <div className="resume-toolbar no-print">
-        <Link to="/" className="resume-back" data-cursor="disable">
-          ← Back to Home
+        <Link to={href("/")} className="resume-back">
+          {t(dict.resume.backHome, locale).replace("← ", "")}
         </Link>
+        <span className="resume-toolbar-title">
+          {locale === "ru" ? "Резюме" : "Curriculum Vitæ"}
+        </span>
         <div className="resume-toolbar-actions">
+          <LanguageSwitcher />
           <button
             type="button"
             onClick={handlePrint}
@@ -42,34 +49,36 @@ const Resume = () => {
             data-cursor="disable"
           >
             <HiOutlinePrinter />
-            <span>Print</span>
+            <span>{t(dict.resume.print, locale)}</span>
           </button>
           <button
             type="button"
             onClick={handlePrint}
             className="resume-toolbar-btn primary"
             data-cursor="disable"
-            title="Use 'Save as PDF' in the print dialog"
           >
             <HiOutlineArrowDownTray />
-            <span>Save as PDF</span>
+            <span>{t(dict.resume.savePdf, locale)}</span>
           </button>
         </div>
       </div>
 
       <article className="resume-doc">
-        {/* Header */}
         <header className="resume-header">
-          <div className="resume-header-main">
-            <h1>{resume.name}</h1>
-            <p className="resume-headline">{resume.headline}</p>
-          </div>
+          <span className="resume-header-eyebrow">
+            {locale === "ru" ? "Резюме" : "Curriculum Vitæ"} ·{" "}
+            {t(resume.lastUpdated, locale)}
+          </span>
+          <h1>{t(resume.name, locale)}</h1>
+          <p className="resume-headline">{t(resume.headline, locale)}</p>
 
           <div className="resume-header-contact">
             <span className="resume-contact-item">
               <HiOutlineMapPin />
-              {resume.location}
-              {resume.remoteOpen ? " · Open to Remote" : ""}
+              {t(resume.location, locale)}
+              {resume.remoteOpen
+                ? ` · ${t(dict.resume.openToRemote, locale)}`
+                : ""}
             </span>
             <a
               href={`mailto:${resume.email}`}
@@ -91,7 +100,7 @@ const Resume = () => {
               data-cursor="disable"
             >
               <FaWhatsapp />
-              WhatsApp {resume.whatsapp}
+              {resume.whatsapp}
             </a>
             <a
               href={resume.githubUrl}
@@ -126,83 +135,105 @@ const Resume = () => {
           </div>
         </header>
 
-        {/* Open-to badge */}
         <div className="resume-availability">
           <HiOutlineSparkles />
-          <span>{resume.openTo}</span>
+          <span>{t(resume.openTo, locale)}</span>
         </div>
 
-        {/* Summary */}
-        <Section icon={<HiOutlineCheckBadge />} title="Summary">
-          <p className="resume-summary">{resume.summary}</p>
+        <Section
+          mark="§"
+          number={num()}
+          title={t(dict.resume.sectionSummary, locale)}
+        >
+          <p className="resume-summary">{t(resume.summary, locale)}</p>
         </Section>
 
-        {/* Selected Impact */}
-        <Section icon={<HiOutlineTrophy />} title="Selected Impact">
+        <Section
+          mark="✦"
+          number={num()}
+          title={t(dict.resume.sectionImpact, locale)}
+        >
           <ul className="resume-impact">
-            {resume.impact.map((item) => (
+            {t(resume.impact, locale).map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
         </Section>
 
-        {/* Experience */}
-        <Section icon={<HiOutlineBriefcase />} title="Experience">
+        <Section
+          mark="¶"
+          number={num()}
+          title={t(dict.resume.sectionExperience, locale)}
+        >
           {resume.experiences.map((exp) => (
-            <div className="resume-exp" key={exp.company + exp.role}>
-              <div className="resume-exp-head">
-                <div>
-                  <h3>{exp.company}</h3>
-                  <p className="resume-exp-role">{exp.role}</p>
-                </div>
-                <div className="resume-exp-meta">
-                  <span>{exp.period}</span>
-                  <span>{exp.location}</span>
-                </div>
+            <div className="resume-exp" key={exp.company + t(exp.role, locale)}>
+              <div className="resume-exp-period">
+                <span>{t(exp.period, locale)}</span>
+                <span className="resume-exp-period-loc">
+                  {t(exp.location, locale)}
+                </span>
               </div>
-              <ul className="resume-bullets">
-                {exp.bullets.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-              <div className="resume-stack">
-                {exp.stack.map((tech) => (
-                  <span className="resume-chip" key={tech}>
-                    {tech}
-                  </span>
-                ))}
+              <div className="resume-exp-content">
+                <h3>{exp.company}</h3>
+                <p className="resume-exp-role">{t(exp.role, locale)}</p>
+                <ul className="resume-bullets">
+                  {t(exp.bullets, locale).map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+                <div className="resume-stack">
+                  {exp.stack.map((tech) => (
+                    <span className="resume-chip" key={tech}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
         </Section>
 
-        {/* Selected Projects */}
-        <Section icon={<HiOutlineRocketLaunch />} title="Selected Projects">
+        <Section
+          mark="◆"
+          number={num()}
+          title={t(dict.resume.sectionProjects, locale)}
+        >
           {resume.projects.map((p) => (
-            <div className="resume-project" key={p.title}>
-              <div className="resume-project-head">
-                <h3>{p.title}</h3>
-                {p.note && (
-                  <span className="resume-project-note">{p.note}</span>
-                )}
+            <div className="resume-project" key={t(p.title, locale)}>
+              <div className="resume-exp-period">
+                <span>
+                  {p.note
+                    ? t(p.note, locale).toUpperCase()
+                    : locale === "ru"
+                      ? "Кейс"
+                      : "Case"}
+                </span>
               </div>
-              <p>{p.description}</p>
+              <div className="resume-exp-content">
+                <div className="resume-project-head">
+                  <h3>{t(p.title, locale)}</h3>
+                </div>
+                <p>{t(p.description, locale)}</p>
+              </div>
             </div>
           ))}
           <p className="resume-portfolio-link">
-            Full case studies and 25+ additional projects:{" "}
-            <Link to="/myworks" data-cursor="disable">
-              /myworks
+            {t(dict.resume.fullCases, locale)}{" "}
+            <Link to={href("/myworks")} data-cursor="disable">
+              /myworks →
             </Link>
           </p>
         </Section>
 
-        {/* Skills */}
-        <Section icon={<HiOutlineCommandLine />} title="Skills">
+        <Section
+          mark="¬"
+          number={num()}
+          title={t(dict.resume.sectionSkills, locale)}
+        >
           <div className="resume-skills">
             {resume.skillGroups.map((group) => (
-              <div className="resume-skill-group" key={group.label}>
-                <h4>{group.label}</h4>
+              <div className="resume-skill-group" key={t(group.label, locale)}>
+                <h4>{t(group.label, locale)}</h4>
                 <div className="resume-skill-items">
                   {group.items.map((item) => (
                     <span className="resume-chip" key={item}>
@@ -215,96 +246,123 @@ const Resume = () => {
           </div>
         </Section>
 
-        {/* Freelance services */}
-        <Section icon={<HiOutlineSparkles />} title="Freelance Services">
+        <Section
+          mark="◊"
+          number={num()}
+          title={t(dict.resume.sectionServices, locale)}
+        >
           <div className="resume-services">
-            {resume.services.map((s) => (
-              <div className="resume-service" key={s.title}>
-                <span className="resume-service-title">{s.title}</span>
-                <span className="resume-service-meta">
-                  from <strong>{s.priceFrom}</strong> · {s.timeline}
-                </span>
-              </div>
-            ))}
+            {resume.services.map((s) => {
+              const price = locale === "ru" ? s.priceFromRub : s.priceFromUsd;
+              return (
+                <div className="resume-service" key={t(s.title, locale)}>
+                  <span className="resume-service-title">
+                    {t(s.title, locale)}
+                  </span>
+                  <span className="resume-service-meta">
+                    {t(dict.resume.from, locale)}{" "}
+                    <strong>{price}</strong> · {t(s.timeline, locale)}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </Section>
 
-        {/* Education */}
-        <Section icon={<HiOutlineAcademicCap />} title="Education">
+        <Section
+          mark="❦"
+          number={num()}
+          title={t(dict.resume.sectionEducation, locale)}
+        >
           {resume.education.map((edu) => (
             <div className="resume-edu" key={edu.institution}>
-              <div className="resume-exp-head">
-                <div>
-                  <h3>{edu.institution}</h3>
-                  <p className="resume-exp-role">
-                    {edu.program}
-                    {edu.location ? ` · ${edu.location}` : ""}
-                  </p>
-                </div>
-                {edu.period && (
-                  <div className="resume-exp-meta">
-                    <span>{edu.period}</span>
-                  </div>
+              <div className="resume-exp-period">
+                {edu.period && <span>{t(edu.period, locale)}</span>}
+                {edu.location && (
+                  <span className="resume-exp-period-loc">
+                    {t(edu.location, locale)}
+                  </span>
                 )}
               </div>
-              {edu.notes && edu.notes.length > 0 && (
-                <ul className="resume-bullets">
-                  {edu.notes.map((n) => (
-                    <li key={n}>{n}</li>
-                  ))}
-                </ul>
-              )}
+              <div className="resume-exp-content">
+                <h3>{edu.institution}</h3>
+                <p>{t(edu.program, locale)}</p>
+                {edu.notes && (
+                  <ul className="resume-bullets" style={{ marginTop: 14 }}>
+                    {t(edu.notes, locale).map((n) => (
+                      <li key={n}>{n}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </div>
           ))}
         </Section>
 
-        {/* Two-up: Awards + Certifications */}
         <div className="resume-two-col">
-          <Section icon={<HiOutlineTrophy />} title="Awards">
+          <Section
+            mark="✕"
+            number={num()}
+            title={t(dict.resume.sectionAwards, locale)}
+          >
             <ul className="resume-bullets">
-              {resume.awards.map((a) => (
+              {t(resume.awards, locale).map((a) => (
                 <li key={a}>{a}</li>
               ))}
             </ul>
           </Section>
 
-          <Section icon={<HiOutlineDocumentCheck />} title="Certifications">
+          <Section
+            mark="✕"
+            number={num()}
+            title={t(dict.resume.sectionCerts, locale)}
+          >
             <ul className="resume-bullets">
-              {resume.certifications.map((c) => (
+              {t(resume.certifications, locale).map((c) => (
                 <li key={c}>{c}</li>
               ))}
             </ul>
           </Section>
         </div>
 
-        {/* Two-up: Languages + Beyond */}
         <div className="resume-two-col">
-          <Section icon={<HiOutlineLanguage />} title="Languages">
+          <Section
+            mark="❀"
+            number={num()}
+            title={t(dict.resume.sectionLanguages, locale)}
+          >
             <div className="resume-langs">
               {resume.languages.map((l) => (
-                <div className="resume-lang" key={l.name}>
-                  <span className="resume-lang-name">{l.name}</span>
-                  <span className="resume-lang-level">{l.level}</span>
+                <div className="resume-lang" key={t(l.name, locale)}>
+                  <span className="resume-lang-name">{t(l.name, locale)}</span>
+                  <span className="resume-lang-level">
+                    {t(l.level, locale)}
+                  </span>
                 </div>
               ))}
             </div>
           </Section>
 
-          <Section icon={<HiOutlineSparkles />} title="Beyond the Code">
+          <Section
+            mark="✺"
+            number={num()}
+            title={t(dict.resume.sectionBeyond, locale)}
+          >
             <ul className="resume-bullets">
-              {resume.beyond.map((b) => (
+              {t(resume.beyond, locale).map((b) => (
                 <li key={b}>{b}</li>
               ))}
             </ul>
           </Section>
         </div>
 
-        {/* Footer */}
         <footer className="resume-footer">
-          <span>Last updated: {resume.lastUpdated}</span>
+          <span>
+            {t(dict.resume.lastUpdated, locale)}: {t(resume.lastUpdated, locale)}
+          </span>
           <span className="no-print">
             <a href={mailto} data-cursor="disable">
-              Get in touch →
+              {t(dict.resume.getInTouch, locale)}
             </a>
           </span>
         </footer>
@@ -314,18 +372,24 @@ const Resume = () => {
 };
 
 const Section = ({
-  icon,
+  mark,
+  number,
   title,
   children
 }: {
-  icon: React.ReactNode;
+  mark: string;
+  number: string;
   title: string;
   children: React.ReactNode;
 }) => (
   <section className="resume-section">
     <h2 className="resume-section-title">
-      <span className="resume-section-icon">{icon}</span>
-      {title}
+      <span className="resume-section-title-text">
+        <span className="resume-section-title-text-mark">{mark}</span>
+        <span>{title}</span>
+      </span>
+      <span />
+      <span className="resume-section-title-num">№ {number}</span>
     </h2>
     <div className="resume-section-body">{children}</div>
   </section>

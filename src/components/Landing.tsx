@@ -1,10 +1,14 @@
 import { PropsWithChildren } from "react";
 import "./styles/Landing.css";
 import { config } from "../config";
+import { useLocale } from "../i18n/LocaleContext";
+import { dict, t } from "../i18n/dictionary";
 
 const Landing = ({ children }: PropsWithChildren) => {
-  const nameParts = config.developer.fullName.split(" ");
-  const firstName = nameParts[0] || config.developer.name;
+  const { locale } = useLocale();
+  const fullName = t(config.developer.fullName, locale);
+  const nameParts = fullName.split(" ");
+  const firstName = nameParts[0] || t(config.developer.name, locale);
   const lastName = nameParts.slice(1).join(" ") || "";
 
   return (
@@ -12,26 +16,30 @@ const Landing = ({ children }: PropsWithChildren) => {
       <div className="landing-section" id="landingDiv">
         <div className="landing-container">
           <div className="landing-intro">
-            <h2>Hello! I'm</h2>
+            <h2>{t(dict.landing.hello, locale)}</h2>
             <h1>
-              {firstName.toUpperCase()}
-              {' '}
-              <br />
+              {firstName.toUpperCase()} <br />
               {lastName && <span>{lastName.toUpperCase()}</span>}
             </h1>
           </div>
           <div className="landing-info">
-            <h3>An</h3>
+            <h3>{t(dict.landing.an, locale)}</h3>
             <h2 className="landing-info-h2">
-              <div className="landing-h2-1">Software Engineer</div>
+              <div className="landing-h2-1">
+                {t(dict.landing.softwareEngineer, locale)}
+              </div>
             </h2>
             <h2>
-              <div className="landing-h2-info">Full-Stack Developer</div>
+              <div className="landing-h2-info">
+                {t(dict.landing.fullStackDeveloper, locale)}
+              </div>
             </h2>
           </div>
-          {/* Mobile photo - shows only on mobile when 3D character is hidden */}
           <div className="mobile-photo">
-            <img src="/images/photo-aris-professional.jpeg" alt="Muhammad Aris Septanugroho" />
+            <img
+              src="/images/photo-aris-professional.jpeg"
+              alt={fullName}
+            />
           </div>
         </div>
         {children}

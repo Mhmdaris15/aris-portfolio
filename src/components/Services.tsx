@@ -7,9 +7,11 @@ import {
   HiOutlineCpuChip,
   HiOutlineChartBar,
   HiOutlineBolt,
-  HiArrowRight,
+  HiArrowRight
 } from "react-icons/hi2";
 import { config } from "../config";
+import { useLocale } from "../i18n/LocaleContext";
+import { dict, t } from "../i18n/dictionary";
 import "./styles/Services.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -19,29 +21,25 @@ const ICONS: Record<string, JSX.Element> = {
   stack: <HiOutlineSquare3Stack3D />,
   ai: <HiOutlineCpuChip />,
   data: <HiOutlineChartBar />,
-  bolt: <HiOutlineBolt />,
+  bolt: <HiOutlineBolt />
 };
 
 const Services = () => {
+  const { locale } = useLocale();
+
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".services-section",
         start: "top 75%",
-        toggleActions: "play none none none",
-      },
+        toggleActions: "play none none none"
+      }
     });
 
     tl.fromTo(
       ".services-eyebrow, .services-section h2, .services-subtitle",
       { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-        stagger: 0.08,
-        ease: "power3.out",
-      }
+      { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: "power3.out" }
     );
 
     tl.fromTo(
@@ -52,7 +50,7 @@ const Services = () => {
         y: 0,
         duration: 0.65,
         stagger: 0.1,
-        ease: "power3.out",
+        ease: "power3.out"
       },
       "-=0.3"
     );
@@ -66,7 +64,9 @@ const Services = () => {
     `mailto:${config.contact.email}?subject=${encodeURIComponent(
       `Project Inquiry — ${service}`
     )}&body=${encodeURIComponent(
-      `Hi Aris,\n\nI'd like to discuss a "${service}" engagement.\n\nProject brief:\n- \n\nTimeline:\n- \n\nBudget range:\n- \n\nThanks!`
+      locale === "ru"
+        ? `Привет, Арис!\n\nХочу обсудить услугу "${service}".\n\nКраткое описание:\n- \n\nСроки:\n- \n\nБюджет:\n- \n\nСпасибо!`
+        : `Hi Aris,\n\nI'd like to discuss a "${service}" engagement.\n\nProject brief:\n- \n\nTimeline:\n- \n\nBudget range:\n- \n\nThanks!`
     )}`;
 
   return (
@@ -76,92 +76,102 @@ const Services = () => {
 
       <div className="services-inner">
         <div className="services-header">
-          <span className="services-eyebrow">— What I offer —</span>
+          <span className="services-eyebrow">{t(dict.services.eyebrow, locale)}</span>
           <h2>
-            <span>Services</span> &amp; Pricing
+            <span>{t(dict.services.title, locale)}</span>
+            {t(dict.services.andPricing, locale)}
           </h2>
           <p className="services-subtitle">
-            Transparent starting prices. Final scope and quote agreed before
-            kickoff — every engagement is custom.
+            {t(dict.services.subtitle, locale)}
           </p>
         </div>
 
         <div className="services-grid">
-          {config.services.map((service) => (
-            <div
-              className={`service-card service-card--${service.id}${
-                service.popular ? " service-card--popular" : ""
-              }`}
-              key={service.id}
-              data-cursor="disable"
-            >
-              {service.popular && (
-                <span className="service-popular-badge">★ Most Popular</span>
-              )}
-
-              <div className="service-icon">{ICONS[service.icon]}</div>
-
-              <div className="service-headline">
-                <h3>{service.title}</h3>
-                <span className="service-tagline">{service.tagline}</span>
-              </div>
-
-              <p className="service-description">{service.description}</p>
-
-              <div className="service-price-row">
-                <div className="service-price">
-                  <span className="service-price-from">starting at</span>
-                  <span className="service-price-amount">
-                    {service.priceFrom}
-                  </span>
-                </div>
-                <div className="service-timeline">
-                  <span className="service-timeline-label">timeline</span>
-                  <span className="service-timeline-value">
-                    {service.timeline}
-                  </span>
-                </div>
-              </div>
-
-              <div className="service-divider" />
-
-              <div className="service-includes">
-                <h5>Includes</h5>
-                <ul>
-                  {service.includes.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="service-stack">
-                {service.stack.map((tech) => (
-                  <span className="service-tag" key={tech}>
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <a
-                href={mailto(service.title)}
-                className="service-cta"
+          {config.services.map((service) => {
+            const title = t(service.title, locale);
+            const price =
+              locale === "ru" ? service.priceFromRub : service.priceFromUsd;
+            return (
+              <div
+                className={`service-card service-card--${service.id}${
+                  service.popular ? " service-card--popular" : ""
+                }`}
+                key={service.id}
                 data-cursor="disable"
               >
-                <span>Discuss this project</span>
-                <HiArrowRight />
-              </a>
-            </div>
-          ))}
+                {service.popular && (
+                  <span className="service-popular-badge">
+                    {t(dict.services.mostPopular, locale)}
+                  </span>
+                )}
+
+                <div className="service-icon">{ICONS[service.icon]}</div>
+
+                <div className="service-headline">
+                  <h3>{title}</h3>
+                  <span className="service-tagline">
+                    {t(service.tagline, locale)}
+                  </span>
+                </div>
+
+                <p className="service-description">
+                  {t(service.description, locale)}
+                </p>
+
+                <div className="service-price-row">
+                  <div className="service-price">
+                    <span className="service-price-from">
+                      {t(dict.services.startingAt, locale)}
+                    </span>
+                    <span className="service-price-amount">{price}</span>
+                  </div>
+                  <div className="service-timeline">
+                    <span className="service-timeline-label">
+                      {t(dict.services.timelineLabel, locale)}
+                    </span>
+                    <span className="service-timeline-value">
+                      {t(service.timeline, locale)}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="service-divider" />
+
+                <div className="service-includes">
+                  <h5>{t(dict.services.includes, locale)}</h5>
+                  <ul>
+                    {t(service.includes, locale).map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="service-stack">
+                  {service.stack.map((tech) => (
+                    <span className="service-tag" key={tech}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <a
+                  href={mailto(title)}
+                  className="service-cta"
+                  data-cursor="disable"
+                >
+                  <span>{t(dict.services.discussCta, locale)}</span>
+                  <HiArrowRight />
+                </a>
+              </div>
+            );
+          })}
         </div>
 
         <div className="services-footer">
           <div className="services-footer-card">
             <div>
-              <h3>Need something different?</h3>
-              <p>
-                Custom engagements, retainers, and team augmentation also
-                available. Tell me what you need.
-              </p>
+              <h3>{t(dict.services.footerTitle, locale)}</h3>
+              <p>{t(dict.services.footerDesc, locale)}</p>
             </div>
             <a
               href={`mailto:${config.contact.email}?subject=${encodeURIComponent(
@@ -170,7 +180,7 @@ const Services = () => {
               className="services-footer-cta"
               data-cursor="disable"
             >
-              Contact me <HiArrowRight />
+              {t(dict.services.footerCta, locale)} <HiArrowRight />
             </a>
           </div>
         </div>

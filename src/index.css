@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@300..800&display=swap");
 
 :root {
   font-family: "Geist", sans-serif;
@@ -18,8 +18,23 @@
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
+
+  /* Color tokens */
   --accentColor: #c2a4ff;
   --backgroundColor: #0b080c;
+  --ink-deep: #07050a;
+  --ink-rise: #14101a;
+  --ink-line: rgba(244, 237, 224, 0.08);
+  --ink-line-strong: rgba(244, 237, 224, 0.18);
+  --paper: #f4ede0;
+  --paper-muted: rgba(244, 237, 224, 0.62);
+  --paper-faint: rgba(244, 237, 224, 0.42);
+
+  /* Type tokens */
+  --font-serif: "Fraunces", "Times New Roman", serif;
+  --font-sans: "Geist", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
   --vh: 100vh;
   --vh: 100svh;
 }

@@ -8,8 +8,11 @@ import { TbNotes } from "react-icons/tb";
 import { useEffect } from "react";
 import HoverLinks from "./HoverLinks";
 import { config } from "../config";
+import { useLocale } from "../i18n/LocaleContext";
+import { dict, t } from "../i18n/dictionary";
 
 const SocialIcons = () => {
+  const { locale, href } = useLocale();
   useEffect(() => {
     const social = document.getElementById("social") as HTMLElement;
 
@@ -75,8 +78,8 @@ const SocialIcons = () => {
           </a>
         </span>
       </div>
-      <a className="resume-button" href="/resume">
-        <HoverLinks text="RESUME" />
+      <a className="resume-button" href={href("/resume")}>
+        <HoverLinks text={t(dict.nav.resume, locale)} />
         <span>
           <TbNotes />
         </span>

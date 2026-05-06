@@ -5,10 +5,14 @@ import { useEffect } from "react";
 import { config } from "../config";
 import { Link } from "react-router-dom";
 import ProjectCover from "./ProjectCover";
+import { useLocale } from "../i18n/LocaleContext";
+import { dict, t } from "../i18n/dictionary";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Work = () => {
+  const { locale, href } = useLocale();
+
   useEffect(() => {
     if (window.innerWidth <= 768) return;
 
@@ -29,7 +33,7 @@ const Work = () => {
 
     setTranslateX();
 
-    let timeline = gsap.timeline({
+    const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".work-section",
         start: "top top",
@@ -39,14 +43,11 @@ const Work = () => {
         pinSpacing: true,
         anticipatePin: 1,
         id: "work",
-        invalidateOnRefresh: true,
-      },
+        invalidateOnRefresh: true
+      }
     });
 
-    timeline.to(".work-flex", {
-      x: -translateX,
-      ease: "none",
-    });
+    timeline.to(".work-flex", { x: -translateX, ease: "none" });
 
     ScrollTrigger.refresh();
 
@@ -55,11 +56,20 @@ const Work = () => {
       ScrollTrigger.getById("work")?.kill();
     };
   }, []);
+
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
         <h2>
-          My <span>Work</span>
+          {locale === "ru" ? (
+            <>
+              Мои <span>работы</span>
+            </>
+          ) : (
+            <>
+              My <span>Work</span>
+            </>
+          )}
         </h2>
         <div className="work-flex">
           {config.projects.slice(0, 5).map((project, index) => (
@@ -67,30 +77,29 @@ const Work = () => {
               <div className="work-info">
                 <div className="work-title">
                   <h3>0{index + 1}</h3>
-
                   <div>
-                    <h4>{project.title}</h4>
-                    <p>{project.category}</p>
+                    <h4>{t(project.title, locale)}</h4>
+                    <p>{t(project.category, locale)}</p>
                   </div>
                 </div>
-                <h4>Tools and features</h4>
+                <h4>{t(dict.work.toolsAndFeatures, locale)}</h4>
                 <p>{project.technologies}</p>
                 <Link
-                  to={`/works/${project.slug}`}
+                  to={href(`/works/${project.slug}`)}
                   className="work-github-link"
                   data-cursor="disable"
                 >
-                  Read case study →
+                  {t(dict.work.readCaseStudy, locale)}
                 </Link>
               </div>
               <Link
-                to={`/works/${project.slug}`}
+                to={href(`/works/${project.slug}`)}
                 className="work-cover-link"
                 data-cursor="disable"
               >
                 <ProjectCover
-                  title={project.title}
-                  category={project.category}
+                  title={t(project.title, locale)}
+                  category={t(project.category, locale)}
                   technologies={project.technologies}
                 />
               </Link>
@@ -98,10 +107,14 @@ const Work = () => {
           ))}
           <div className="work-box work-box-cta">
             <div className="see-all-works">
-              <h3>Want to see more?</h3>
-              <p>Explore all of my projects and creations</p>
-              <Link to="/myworks" className="see-all-btn" data-cursor="disable">
-                See All Works →
+              <h3>{t(dict.work.wantMore, locale)}</h3>
+              <p>{t(dict.work.wantMoreDesc, locale)}</p>
+              <Link
+                to={href("/myworks")}
+                className="see-all-btn"
+                data-cursor="disable"
+              >
+                {t(dict.work.seeAll, locale)}
               </Link>
             </div>
           </div>
