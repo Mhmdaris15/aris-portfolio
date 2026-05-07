@@ -1,0 +1,262 @@
+/* === QR Card — show-this-at-events page === */
+
+.qr-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.qr-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 100px);
+  padding-top: clamp(40px, 6vw, 80px);
+  padding-bottom: 40px;
+}
+
+.qr-stage {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+  flex: 1;
+}
+
+.qr-meta {
+  max-width: 520px;
+}
+
+.qr-title {
+  font-size: clamp(2.4rem, 7vw, 5.5rem);
+  margin: 24px 0 28px;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+}
+
+.qr-tagline {
+  margin: 0 0 16px;
+}
+
+.qr-secondary {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--paper-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* QR card — ivory paper on dark page, frames the QR so cameras
+   see the high contrast they need to lock on quickly. */
+.qr-card {
+  appearance: none;
+  background: var(--paper);
+  border: none;
+  padding: clamp(20px, 2vw, 30px);
+  cursor: pointer;
+  width: clamp(280px, 32vw, 420px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: inherit;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1),
+    box-shadow 0.4s ease;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(244, 237, 224, 0.08);
+}
+
+.qr-card::before,
+.qr-card::after {
+  /* Tiny corner ticks — printed-card feel */
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(11, 8, 12, 0.4);
+}
+
+.qr-card::before {
+  top: 8px;
+  left: 8px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.qr-card::after {
+  bottom: 8px;
+  right: 8px;
+  border-left: none;
+  border-top: none;
+}
+
+.qr-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(194, 164, 255, 0.45);
+}
+
+.qr-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  /* Make sure the QR pixels stay crisp, not interpolated soft. */
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.qr-card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 6px 0;
+  border-top: 1px solid rgba(11, 8, 12, 0.15);
+  padding-top: 14px;
+}
+
+.qr-card-name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--ink-deep);
+  font-weight: 600;
+}
+
+.qr-card-url {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(11, 8, 12, 0.55);
+  letter-spacing: 0.6px;
+}
+
+/* Footer hint + actions */
+.qr-footer {
+  margin-top: clamp(40px, 6vw, 70px);
+  padding-top: clamp(24px, 3vw, 36px);
+  border-top: 1px solid var(--ink-line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.qr-hint {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.05rem;
+  color: var(--paper-muted);
+  margin: 0;
+  font-variation-settings: "opsz" 18;
+  max-width: 540px;
+}
+
+.qr-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ─── Present mode — pure white, QR maximized ─── */
+
+.qr-present {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  animation: qr-fade-in 0.25s ease;
+}
+
+@keyframes qr-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.qr-present-img {
+  /* Fill ~70% of the smaller viewport edge — the camera sweet spot
+     for fast lock-on at typical scanning distances (1–3 m). */
+  width: min(70vh, 70vw);
+  height: min(70vh, 70vw);
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.qr-present-meta {
+  position: fixed;
+  top: 32px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(11, 8, 12, 0.65);
+}
+
+.qr-present-name {
+  font-weight: 600;
+  color: var(--ink-deep);
+}
+
+.qr-present-exit {
+  position: fixed;
+  bottom: 32px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(11, 8, 12, 0.45);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .qr-stage {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    text-align: left;
+  }
+
+  .qr-card {
+    margin: 0 auto;
+    width: min(360px, 84vw);
+  }
+
+  .qr-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .qr-actions {
+    width: 100%;
+  }
+
+  .qr-actions a,
+  .qr-actions button {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .qr-present-meta {
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    text-align: center;
+    top: 16px;
+    padding: 0 16px;
+  }
+}

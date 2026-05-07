@@ -12,6 +12,7 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Events = lazy(() => import("./pages/Events"));
 const EventDetail = lazy(() => import("./pages/EventDetail"));
 const Resume = lazy(() => import("./pages/Resume"));
+const QrCard = lazy(() => import("./pages/QrCard"));
 const Play = lazy(() => import("./pages/Play"));
 const AdminApp = lazy(() => import("./admin/AdminApp"));
 import { LoadingProvider } from "./context/LoadingProvider";
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="/events" element={wrap(<Events />)} />
           <Route path="/events/:slug" element={wrap(<EventDetail />)} />
           <Route path="/resume" element={wrap(<Resume />)} />
+          <Route path="/qr" element={wrap(<QrCard />)} />
           <Route path="/play" element={wrap(<Play />)} />
 
           {/* Admin (locale-agnostic) */}
@@ -60,6 +62,7 @@ const App = () => {
           <Route path="/ru/events" element={wrap(<Events />)} />
           <Route path="/ru/events/:slug" element={wrap(<EventDetail />)} />
           <Route path="/ru/resume" element={wrap(<Resume />)} />
+          <Route path="/ru/qr" element={wrap(<QrCard />)} />
           <Route path="/ru/play" element={wrap(<Play />)} />
         </Routes>
       </LocaleProvider>
