@@ -18,7 +18,11 @@ const ORIGIN = "https://aris.permiraspb.org";
 
 /* ─── Extract slugs from data files via light regex parse ─── */
 
-const blogSrc = readFileSync(join(ROOT, "src/data/blog.ts"), "utf8");
+// Concat both blog source files so platform-engineering posts are picked up too.
+const blogSrc =
+    readFileSync(join(ROOT, "src/data/blog.ts"), "utf8") +
+    "\n" +
+    readFileSync(join(ROOT, "src/data/blog-platform.ts"), "utf8");
 const eventsSrc = readFileSync(join(ROOT, "src/data/events.ts"), "utf8");
 const configSrc = readFileSync(join(ROOT, "src/config.ts"), "utf8");
 

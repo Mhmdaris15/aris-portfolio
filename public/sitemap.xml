@@ -1047,6 +1047,186 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/frappe-erpnext-internals"/>
   </url>
   <url>
+    <loc>https://aris.permiraspb.org/blog/reference-platform-stack-2026</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/reference-platform-stack-2026"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/reference-platform-stack-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/reference-platform-stack-2026"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/ru/blog/reference-platform-stack-2026</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/reference-platform-stack-2026"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/reference-platform-stack-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/reference-platform-stack-2026"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/blog/backstage-idp-2026</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/backstage-idp-2026"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/backstage-idp-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/backstage-idp-2026"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/ru/blog/backstage-idp-2026</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/backstage-idp-2026"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/backstage-idp-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/backstage-idp-2026"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/blog/platform-engineering-not-devops-renamed</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/platform-engineering-not-devops-renamed"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/platform-engineering-not-devops-renamed"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/platform-engineering-not-devops-renamed"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/ru/blog/platform-engineering-not-devops-renamed</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/platform-engineering-not-devops-renamed"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/platform-engineering-not-devops-renamed"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/platform-engineering-not-devops-renamed"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/blog/gitops-argocd-vs-flux-2026</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/gitops-argocd-vs-flux-2026"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/gitops-argocd-vs-flux-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/gitops-argocd-vs-flux-2026"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/ru/blog/gitops-argocd-vs-flux-2026</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/gitops-argocd-vs-flux-2026"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/gitops-argocd-vs-flux-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/gitops-argocd-vs-flux-2026"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/blog/opentelemetry-observability-foundation-2026</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/opentelemetry-observability-foundation-2026"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/opentelemetry-observability-foundation-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/opentelemetry-observability-foundation-2026"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/ru/blog/opentelemetry-observability-foundation-2026</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/opentelemetry-observability-foundation-2026"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/opentelemetry-observability-foundation-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/opentelemetry-observability-foundation-2026"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/blog/ebpf-in-production-2026</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/ebpf-in-production-2026"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/ebpf-in-production-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/ebpf-in-production-2026"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/ru/blog/ebpf-in-production-2026</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/ebpf-in-production-2026"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/ebpf-in-production-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/ebpf-in-production-2026"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/blog/crossplane-infrastructure-as-data</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/crossplane-infrastructure-as-data"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/crossplane-infrastructure-as-data"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/crossplane-infrastructure-as-data"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/ru/blog/crossplane-infrastructure-as-data</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/crossplane-infrastructure-as-data"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/crossplane-infrastructure-as-data"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/crossplane-infrastructure-as-data"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/blog/finops-platform-teams-2026</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/finops-platform-teams-2026"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/finops-platform-teams-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/finops-platform-teams-2026"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/ru/blog/finops-platform-teams-2026</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/finops-platform-teams-2026"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/finops-platform-teams-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/finops-platform-teams-2026"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/blog/self-hosted-cloud-coolify-2026</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/self-hosted-cloud-coolify-2026"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/self-hosted-cloud-coolify-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/self-hosted-cloud-coolify-2026"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/ru/blog/self-hosted-cloud-coolify-2026</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/self-hosted-cloud-coolify-2026"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/self-hosted-cloud-coolify-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/self-hosted-cloud-coolify-2026"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/blog/progressive-delivery-2026</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/progressive-delivery-2026"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/progressive-delivery-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/progressive-delivery-2026"/>
+  </url>
+  <url>
+    <loc>https://aris.permiraspb.org/ru/blog/progressive-delivery-2026</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aris.permiraspb.org/blog/progressive-delivery-2026"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aris.permiraspb.org/ru/blog/progressive-delivery-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aris.permiraspb.org/blog/progressive-delivery-2026"/>
+  </url>
+  <url>
     <loc>https://aris.permiraspb.org/events/neimark-hackathon-2026</loc>
     <lastmod>2026-05-10</lastmod>
     <changefreq>yearly</changefreq>

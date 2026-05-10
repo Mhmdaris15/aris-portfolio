@@ -22,7 +22,10 @@ export interface BlogPost {
     ru: BlogContent;
 }
 
+import { platformPosts } from "./blog-platform";
+
 export const posts: BlogPost[] = [
+    ...platformPosts,
     {
         slug: "rise-of-mcp-2026",
         date: "2026-04-12",

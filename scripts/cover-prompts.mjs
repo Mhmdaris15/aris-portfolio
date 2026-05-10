@@ -113,7 +113,29 @@ export const coverPrompts = {
     "recursive-landing-page":
         "modular landing-page wireframe components floating in mid-assembly, Shadcn-inspired precision, dark/light duality split through center",
     "tracepointspb":
-        "dark glassmorphism panels with bilingual flyer-distribution motifs, elegant marketing aesthetic, futuristic startup branding"
+        "dark glassmorphism panels with bilingual flyer-distribution motifs, elegant marketing aesthetic, futuristic startup branding",
+
+    /* ─── Platform Engineering & DevOps series ───────────────────── */
+    "reference-platform-stack-2026":
+        "cinematic isometric architectural cross-section showing seven precisely-stacked translucent strata of an internal platform — source-of-truth, build, cluster, control plane, delivery, observability, developer surface — connected by glowing fiber lines, blueprint precision on dark editorial paper",
+    "backstage-idp-2026":
+        "an open architectural ledger floating in dark space, its pages dissolving into a luminous network of service nodes connected by fine threads, central hub radiating outward, software-catalog conceptual composition",
+    "platform-engineering-not-devops-renamed":
+        "two parallel roads in dark space, one rougher and traveled by many small figures, the other a smoother paved ribbon converging from above with a single guiding light, conceptual paved-road metaphor, refined editorial",
+    "gitops-argocd-vs-flux-2026":
+        "two contrasting magnetic poles in deep space, each pulling a stream of small geometric commits toward itself, one stream arranged in a tree and one as parallel rivers, dual-tool conceptual composition, dark cinematic palette",
+    "opentelemetry-observability-foundation-2026":
+        "three luminous signal streams — traces as flowing arcs, metrics as discrete pulses, logs as parallel lines — converging from different directions into a single transparent conduit at center, telemetry-foundation conceptual",
+    "ebpf-in-production-2026":
+        "ultra-precise mechanical cross-section of a kernel layer with intricate gears and channels, small luminous eBPF program shapes inserted at specific attach-points, glowing data-flow lines, technical-architectural editorial",
+    "crossplane-infrastructure-as-data":
+        "flat YAML manifest pages on the left lifting and transforming into three-dimensional cloud-resource objects on the right — database cylinders, network cubes, IAM keys — connected by reconciliation-loop arcs, declarative-to-real metaphor",
+    "finops-platform-teams-2026":
+        "elegant balance scale in dark editorial space, one side holding luminous compute and storage glyphs, the other holding precisely-stacked currency tokens, subtle topology lines underneath, cost-engineering conceptual composition",
+    "self-hosted-cloud-coolify-2026":
+        "single illuminated server tower in a dark editorial space, its surface lit by many small windowed services arranged in a precise grid, soft lavender atmospheric glow around it, ownership-and-self-reliance conceptual",
+    "progressive-delivery-2026":
+        "bridge of stepped platforms in dark space, traffic streams flowing across from left to right with increasing width — first 5%, then 25%, then 50%, then 100% — each step illuminated, with health indicators glowing green at each interval, canary-rollout metaphor"
 };
 
 /**

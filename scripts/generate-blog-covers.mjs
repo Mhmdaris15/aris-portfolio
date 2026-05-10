@@ -26,6 +26,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
 const OUT_DIR = join(ROOT, "public", "images", "blog");
 const BLOG_TS = join(ROOT, "src", "data", "blog.ts");
+const BLOG_PLATFORM_TS = join(ROOT, "src", "data", "blog-platform.ts");
 
 const args = process.argv.slice(2);
 const flag = (name) => args.includes(name);
@@ -52,7 +53,9 @@ if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
 /* ─── Extract posts from blog.ts via a light TS parse ─── */
 
 function loadPosts() {
-    const src = readFileSync(BLOG_TS, "utf8");
+    // Concat both blog source files so platform-engineering posts get covers too.
+    let src = readFileSync(BLOG_TS, "utf8");
+    try { src += "\n" + readFileSync(BLOG_PLATFORM_TS, "utf8"); } catch {}
     // Match top-level entries: { slug: "...", date: "...", ..., en: { title: "...", ... }, ... tags: [...] }
     // Light approach: regex out the slug+title+tags trio per post.
     const posts = [];
