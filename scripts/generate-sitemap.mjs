@@ -14,7 +14,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
-const ORIGIN = "https://aris-septanugroho-portfolio.vercel.app";
+const ORIGIN = "https://aris.permiraspb.org";
 
 /* ─── Extract slugs from data files via light regex parse ─── */
 

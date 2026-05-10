@@ -5,7 +5,7 @@
 
 export const SITE = {
     /** Canonical origin. Change once and the entire SEO surface follows. */
-    origin: "https://aris-septanugroho-portfolio.vercel.app",
+    origin: "https://aris.permiraspb.org",
 
     name: "Aris Septanugroho",
     fullName: "Muhammad Aris Septanugroho",

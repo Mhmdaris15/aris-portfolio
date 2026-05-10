@@ -4,7 +4,7 @@
 
 📍 Saint Petersburg, Russia (ITMO University) · Open to Remote
 📧 muhammadaris1945@gmail.com · 📱 +7 981 040 9453 · WhatsApp +62 858 1404 5755
-🔗 [GitHub](https://github.com/Mhmdaris15) · [LinkedIn](http://linkedin.com/in/muhammad-aris-septanugroho) · [Portfolio](https://aris-septanugroho-portfolio.vercel.app)
+🔗 [GitHub](https://github.com/Mhmdaris15) · [LinkedIn](http://linkedin.com/in/muhammad-aris-septanugroho) · [Portfolio](https://aris.permiraspb.org)
 
 ---
 
@@ -87,7 +87,7 @@ Go + WebSocket real-time scoring; held steady at 4% CPU during a live tournament
 ### Client Report Automation (Demandlane)
 Polars / Parquet pipeline replacing a 14-minute, 11GB Pandas job with a 38-second, 800MB version. Idempotent Redshift loads with Slack alerting.
 
-> Full case studies and 25+ additional projects: [aris-portfolio.vercel.app/myworks](https://aris-septanugroho-portfolio.vercel.app/myworks)
+> Full case studies and 25+ additional projects: [aris-portfolio.vercel.app/myworks](https://aris.permiraspb.org/myworks)
 
 ---
 
@@ -162,7 +162,7 @@ Saint Petersburg, Russia
 - Mentored junior engineers and conducted technical interviews at Demandlane
 - Authored internal architecture documentation and runbooks
 - Active competitive data scientist (Kaggle: [@Mhmdaris15](https://www.kaggle.com/Mhmdaris15))
-- Writes about software engineering and AI on [my blog](https://aris-septanugroho-portfolio.vercel.app/blog)
+- Writes about software engineering and AI on [my blog](https://aris.permiraspb.org/blog)
 
 ---
 

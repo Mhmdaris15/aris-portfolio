@@ -82,7 +82,7 @@ export const githubProjects: GhProject[] = [
         },
         stack: ["Coolify", "Docker", "GCP", "Cloudflare", "Nginx", "GitHub Actions"],
         tags: ["Platform Engineering", "DevOps", "Infrastructure", "Production"],
-        demo: "https://aris-septanugroho-portfolio.vercel.app",
+        demo: "https://aris.permiraspb.org",
         featured: true,
         metrics: {
             stars: 0, forks: 0,

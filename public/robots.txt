@@ -28,4 +28,4 @@ Disallow: /admin
 # User-agent: anthropic-ai
 # Disallow: /
 
-Sitemap: https://aris-septanugroho-portfolio.vercel.app/sitemap.xml
+Sitemap: https://aris.permiraspb.org/sitemap.xml

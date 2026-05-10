@@ -1,0 +1,113 @@
+/* ═══════════════════════════════════════════════════════════════
+ * Brand mark + wordmark + lockup + animated variant.
+ * Pure CSS animations (no JS) for the animated variant.
+ * ═══════════════════════════════════════════════════════════════ */
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+  flex-shrink: 0;
+}
+
+.brand-mark svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Wordmark — geometric "aris" with a small accent dot terminator */
+.brand-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-sans, "Geist", system-ui, sans-serif);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  font-size: 18px;
+  line-height: 1;
+  text-transform: lowercase;
+}
+
+.brand-wordmark-text {
+  color: currentColor;
+}
+
+.brand-wordmark-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accentColor, #c2a4ff);
+  margin-left: 2px;
+  align-self: flex-end;
+  margin-bottom: 0.12em;
+  flex-shrink: 0;
+}
+
+/* Lockup — mark + wordmark together */
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans, "Geist", system-ui, sans-serif);
+  color: currentColor;
+}
+
+.brand-lockup .brand-mark {
+  width: 1.4em;
+  height: 1.4em;
+}
+
+.brand-lockup-text {
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  font-size: 1em;
+  line-height: 1;
+  text-transform: lowercase;
+}
+
+/* ─── Animated variant ──────────────────────────────────────── */
+
+.brand-mark--animated svg .brand-stroke-draw {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: brand-draw 1.1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.brand-mark--animated svg .brand-stroke-draw--crossbar {
+  animation-delay: 0.45s;
+  animation-duration: 0.6s;
+}
+
+@keyframes brand-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+.brand-dot-pulse {
+  transform-origin: 18px 7px;
+  animation: brand-pulse 2.4s ease-in-out infinite;
+  animation-delay: 1.1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+@keyframes brand-pulse {
+  0%       { opacity: 0; transform: scale(0.4); }
+  10%      { opacity: 1; transform: scale(1.1); }
+  20%, 80% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(0.85); }
+  100%     { opacity: 1; transform: scale(1); }
+}
+
+/* Reduced motion — skip the draw, just show the final state. */
+@media (prefers-reduced-motion: reduce) {
+  .brand-mark--animated svg .brand-stroke-draw {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .brand-dot-pulse {
+    animation: none;
+    opacity: 1;
+  }
+}

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useLocale, pick } from "../i18n/LocaleContext";
 import { config } from "../config";
 import SeoHead from "../seo/SeoHead";
+import Logo from "../brand/Logo";
 import "../styles/editorial.css";
 import "./QrCard.css";
 
@@ -135,7 +136,7 @@ const QrCard = () => {
                             <img src={QR_SRC} alt="Portfolio QR code" />
                             <div className="qr-card-foot">
                                 <span className="qr-card-name">
-                                    {pick(config.developer.name, locale).toUpperCase()}
+                                    <Logo variant="lockup" size="14px" mono />
                                 </span>
                                 <span className="qr-card-url">{SITE_URL}</span>
                             </div>

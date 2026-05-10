@@ -86,7 +86,7 @@ export const resume: ResumeData = {
     linkedin: "muhammad-aris-septanugroho",
     linkedinUrl: "https://www.linkedin.com/in/muhammad-aris-septanugroho/",
     portfolio: "aris-portfolio.vercel.app",
-    portfolioUrl: "https://aris-septanugroho-portfolio.vercel.app",
+    portfolioUrl: "https://aris.permiraspb.org",
     summary: {
         en: "Systems Engineer who treats system design as a first-class skill. I read source code (Postgres, Frappe, vLLM, ChromaDB, Lenis, Anthropic SDKs) to understand how good systems are actually built — then apply that lens to data pipelines, real-time platforms, LLM/RAG systems, and full-stack apps in production. Comfortable across Go, Python, and TypeScript; equally comfortable choosing the boring stack when it's the right call. Active hackathon competitor, technical mentor, and writer about engineering.",
         ru: "Systems Engineer, который относится к system design как к first-class навыку. Читаю исходники (Postgres, Frappe, vLLM, ChromaDB, Lenis, Anthropic SDK), чтобы понимать, как реально устроены хорошие системы — и применяю этот взгляд к data-пайплайнам, real-time платформам, LLM/RAG-системам и full-stack приложениям в продакшене. Уверенно работаю на Go, Python и TypeScript; так же уверенно выбираю скучный стек, когда это правильно. Активный участник хакатонов, технический ментор, пишу про инженерию."

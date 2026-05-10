@@ -552,3 +552,280 @@ h2.landing-info-h2 {
     font-size: 75px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+ * Cinematic portrait — replaces the legacy bare .mobile-photo <img>.
+ * Layered composition: aura glow → grid → frame → image → glints.
+ * 3D-ish parallax tilt driven by mousemove (CSS variables --tilt-x/y).
+ * ═══════════════════════════════════════════════════════════════ */
+
+/* Tiny brand eyebrow above the hello text */
+.landing-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 11px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: rgba(244, 237, 224, 0.55);
+  margin-bottom: 14px;
+}
+
+.landing-eyebrow .brand-mark {
+  width: 14px;
+  height: 14px;
+  color: var(--accentColor, #c2a4ff);
+}
+
+/* Portrait stack */
+.portrait {
+  display: none;
+  position: relative;
+  width: min(360px, 84vw);
+  aspect-ratio: 4 / 5;
+  margin: 0 auto;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+/* Soft animated aura behind everything */
+.portrait-aura {
+  position: absolute;
+  inset: -18%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(194, 164, 255, 0.32), transparent 55%),
+    radial-gradient(circle at 70% 70%, rgba(120, 200, 255, 0.22), transparent 55%);
+  filter: blur(60px);
+  opacity: 0.85;
+  animation: portrait-aura-drift 14s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes portrait-aura-drift {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(8px, -10px); }
+}
+
+/* Subtle technical grid behind the frame */
+.portrait-grid {
+  position: absolute;
+  inset: -8% -8% 8% -8%;
+  background-image:
+    linear-gradient(rgba(244, 237, 224, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 237, 224, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Frame — glassmorphism container holding image + meta strip */
+.portrait-frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    160deg,
+    rgba(244, 237, 224, 0.06) 0%,
+    rgba(244, 237, 224, 0.015) 100%
+  );
+  border: 1px solid rgba(244, 237, 224, 0.12);
+  border-radius: 8px;
+  padding: 14px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(194, 164, 255, 0.1) inset;
+  /* Parallax tilt — subtle */
+  transform: rotateY(calc(var(--tilt-x, 0) * 4deg)) rotateX(calc(var(--tilt-y, 0) * -4deg));
+  transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-frame { transform: none !important; }
+  .portrait-aura { animation: none; }
+}
+
+/* Decorative corner ticks — printed-card vibe */
+.portrait-tick {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(194, 164, 255, 0.5);
+  pointer-events: none;
+}
+.portrait-tick--tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.portrait-tick--tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+.portrait-tick--bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+.portrait-tick--br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+/* Image well */
+.portrait-image {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--ink-deep, #07050a);
+}
+
+.portrait-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%; /* keep face well-framed */
+  display: block;
+  /* Slightly displaced parallax — image moves opposite the frame for depth */
+  transform: translate(
+    calc(var(--tilt-x, 0) * -6px),
+    calc(var(--tilt-y, 0) * -6px)
+  ) scale(1.04);
+  transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1);
+  filter: contrast(1.05) saturate(1.05);
+}
+
+.portrait-image::after {
+  /* Soft inner glow — premium product photography vibe */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(194, 164, 255, 0.16),
+    transparent 60%
+  );
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.portrait-fade {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 40%;
+  background: linear-gradient(180deg, transparent, rgba(7, 5, 10, 0.7));
+  pointer-events: none;
+}
+
+.portrait-skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(244, 237, 224, 0.04) 0%,
+    rgba(244, 237, 224, 0.08) 50%,
+    rgba(244, 237, 224, 0.04) 100%
+  );
+  background-size: 200% 100%;
+  animation: portrait-shimmer 1.6s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes portrait-shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* Meta strip across the bottom of the frame */
+.portrait-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: rgba(244, 237, 224, 0.6);
+  padding: 4px 6px 0;
+}
+
+.portrait-meta-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.portrait-meta-label { color: #4cd964; }
+
+.portrait-meta-coord { color: rgba(244, 237, 224, 0.4); }
+
+.portrait-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4cd964;
+  box-shadow: 0 0 6px #4cd964;
+  animation: portrait-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes portrait-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(0.85); }
+}
+
+/* Floating glints — three small accents drifting around the frame */
+.portrait-glint {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accentColor, #c2a4ff);
+  box-shadow: 0 0 12px var(--accentColor, #c2a4ff);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.portrait-glint--1 { top: 10%; left: -6%; animation: portrait-glint-1 6s ease-in-out infinite; }
+.portrait-glint--2 { top: 50%; right: -4%; animation: portrait-glint-2 8s ease-in-out infinite; }
+.portrait-glint--3 { bottom: 14%; left: 8%; animation: portrait-glint-3 7s ease-in-out infinite; }
+
+@keyframes portrait-glint-1 {
+  0%, 100% { opacity: 0.2; transform: translate(0, 0); }
+  50%      { opacity: 1;   transform: translate(8px, -6px); }
+}
+@keyframes portrait-glint-2 {
+  0%, 100% { opacity: 0.3; transform: translate(0, 0); }
+  50%      { opacity: 1;   transform: translate(-6px, 8px); }
+}
+@keyframes portrait-glint-3 {
+  0%, 100% { opacity: 0.25; transform: translate(0, 0); }
+  50%      { opacity: 0.9;  transform: translate(4px, -8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-glint, .portrait-status-dot, .portrait-skeleton {
+    animation: none;
+  }
+}
+
+/* ─── Visibility — show portrait on mobile (replaces .mobile-photo)
+       AND on desktop hide it (3D character takes over) ───────── */
+
+@media only screen and (max-width: 1024px) {
+  .portrait {
+    display: block;
+    order: 2;
+    margin-top: 8px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .portrait {
+    width: min(280px, 78vw);
+  }
+  .portrait-meta {
+    font-size: 9px;
+    letter-spacing: 1.2px;
+  }
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import Logo from "../../brand/Logo";
 import "./loading.css";
 
 /**
@@ -122,9 +123,10 @@ const LoadingScreen = ({
           transition={{ delay: 0.12, ...enter }}
           aria-hidden
         >
-          <span>A</span>
-          <span>·</span>
-          <span>S</span>
+          <Logo
+            variant="animated"
+            size={isBoot ? "clamp(64px, 9vw, 96px)" : "clamp(48px, 6vw, 64px)"}
+          />
         </motion.div>
 
         <motion.div

@@ -7,6 +7,7 @@ import { config } from "../config";
 import { useLocale } from "../i18n/LocaleContext";
 import { dict, t } from "../i18n/dictionary";
 import LanguageSwitcher from "./LanguageSwitcher";
+import Logo from "../brand/Logo";
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -66,8 +67,8 @@ const Navbar = () => {
     <>
       <div className="header">
         <div className="navbar-left">
-          <a href={href("/")} className="navbar-title" data-cursor="disable">
-            {t(config.developer.name, locale)}
+          <a href={href("/")} className="navbar-title" data-cursor="disable" aria-label="Aris — home">
+            <Logo variant="lockup" size="20px" />
           </a>
           {config.availability.open && (
             <span className="navbar-availability" data-cursor="disable">
