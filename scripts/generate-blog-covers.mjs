@@ -70,62 +70,89 @@ function loadPosts() {
 
 /* ─── API callers ─── */
 
+const NANO_BANANA_CANDIDATES = [
+    "gemini-2.5-flash-image",
+    "gemini-2.5-flash-image-preview",
+    "gemini-2.0-flash-exp-image-generation",
+    "gemini-2.0-flash-preview-image-generation"
+];
+let resolvedNanoModel = null;
+
 async function callNanoBanana(prompt) {
-    // gemini-2.5-flash-image (Nano Banana). Returns inline_data with PNG.
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image-preview:generateContent?key=${API_KEY}`;
-    const body = {
-        contents: [{ role: "user", parts: [{ text: prompt }] }],
-        generationConfig: {
-            responseModalities: ["IMAGE"]
+    const candidates = resolvedNanoModel ? [resolvedNanoModel] : NANO_BANANA_CANDIDATES;
+    let lastErr;
+    for (const model of candidates) {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${API_KEY}`;
+        const body = {
+            contents: [{ role: "user", parts: [{ text: prompt }] }],
+            generationConfig: { responseModalities: ["IMAGE"] }
+        };
+        const res = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body)
+        });
+        if (res.status === 404) {
+            lastErr = `404 on ${model}`;
+            continue;
         }
-    };
-    const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
-    });
-    if (!res.ok) {
-        const errText = await res.text();
-        throw new Error(`Nano Banana ${res.status}: ${errText.slice(0, 400)}`);
+        if (!res.ok) throw new Error(`Nano Banana ${res.status} (${model}): ${(await res.text()).slice(0, 400)}`);
+        const json = await res.json();
+        const parts = json.candidates?.[0]?.content?.parts || [];
+        const imgPart = parts.find((p) => p.inlineData || p.inline_data);
+        if (!imgPart) throw new Error(`No image in ${model} response: ${JSON.stringify(json).slice(0, 300)}`);
+        if (!resolvedNanoModel) {
+            resolvedNanoModel = model;
+            console.log(`  (using model: ${model})`);
+        }
+        return Buffer.from((imgPart.inlineData || imgPart.inline_data).data, "base64");
     }
-    const json = await res.json();
-    const parts = json.candidates?.[0]?.content?.parts || [];
-    const imgPart = parts.find((p) => p.inlineData || p.inline_data);
-    if (!imgPart) {
-        throw new Error("No image in response: " + JSON.stringify(json).slice(0, 400));
-    }
-    const data = (imgPart.inlineData || imgPart.inline_data).data;
-    return Buffer.from(data, "base64");
+    throw new Error(`No Nano Banana model worked. Last: ${lastErr}. Run: node scripts/list-gemini-models.mjs`);
 }
 
+const IMAGEN_CANDIDATES = [
+    "imagen-4.0-generate-001",
+    "imagen-4.0-generate-preview-06-06",
+    "imagen-3.0-generate-002",
+    "imagen-3.0-generate-001"
+];
+let resolvedImagenModel = null;
+
 async function callImagen(prompt) {
-    // imagen-4.0-generate-001 via Gemini API (predict endpoint)
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=${API_KEY}`;
-    const body = {
-        instances: [{ prompt }],
-        parameters: {
-            sampleCount: 1,
-            aspectRatio: "16:9",
-            safetyFilterLevel: "block_only_high",
-            personGeneration: "allow_adult"
+    const candidates = resolvedImagenModel ? [resolvedImagenModel] : IMAGEN_CANDIDATES;
+    let lastErr;
+    for (const model of candidates) {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:predict?key=${API_KEY}`;
+        const body = {
+            instances: [{ prompt }],
+            parameters: {
+                sampleCount: 1,
+                aspectRatio: "16:9",
+                safetyFilterLevel: "block_only_high",
+                personGeneration: "allow_adult"
+            }
+        };
+        const res = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body)
+        });
+        if (res.status === 404) {
+            lastErr = `404 on ${model}`;
+            continue;
         }
-    };
-    const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
-    });
-    if (!res.ok) {
-        const errText = await res.text();
-        throw new Error(`Imagen 4 ${res.status}: ${errText.slice(0, 400)}`);
+        if (!res.ok) throw new Error(`Imagen ${res.status} (${model}): ${(await res.text()).slice(0, 400)}`);
+        const json = await res.json();
+        const pred = json.predictions?.[0];
+        const b64 = pred?.bytesBase64Encoded || pred?.image?.imageBytes;
+        if (!b64) throw new Error(`No image in ${model} response: ${JSON.stringify(json).slice(0, 300)}`);
+        if (!resolvedImagenModel) {
+            resolvedImagenModel = model;
+            console.log(`  (using model: ${model})`);
+        }
+        return Buffer.from(b64, "base64");
     }
-    const json = await res.json();
-    const pred = json.predictions?.[0];
-    const b64 = pred?.bytesBase64Encoded || pred?.image?.imageBytes;
-    if (!b64) {
-        throw new Error("No image in response: " + JSON.stringify(json).slice(0, 400));
-    }
-    return Buffer.from(b64, "base64");
+    throw new Error(`No Imagen model worked. Last: ${lastErr}. Run: node scripts/list-gemini-models.mjs`);
 }
 
 const generators = { nano: callNanoBanana, imagen: callImagen };

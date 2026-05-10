@@ -5,6 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { events, eventsByYear, EventType } from "../data/events";
 import { config } from "../config";
 import { useLocale, pick } from "../i18n/LocaleContext";
+import SeoHead from "../seo/SeoHead";
+import { itemListSchema, breadcrumbSchema } from "../seo/schema";
+import { absolute } from "../seo/siteConfig";
 import "../styles/editorial.css";
 import "./Events.css";
 
@@ -70,8 +73,35 @@ const Events = () => {
       day: "numeric"
     });
 
+  const seoTitle =
+    locale === "ru"
+      ? "События, хакатоны и конференции"
+      : "Events, hackathons, and conferences";
+  const seoDesc =
+    locale === "ru"
+      ? "Хакатоны, соревнования и тех-конференции, на которых я строил, проигрывал и учился. Включая 1-е место LKS Data Science 2023 и Kaggle AIMO."
+      : "Hackathons, competitions, and tech conferences I've built at, lost at, and learned from. Including 1st place LKS Data Science 2023 and Kaggle AIMO.";
+
   return (
     <div ref={root} className="editorial events-page">
+      <SeoHead
+        path="/events"
+        title={seoTitle}
+        description={seoDesc}
+        jsonLd={[
+          itemListSchema(
+            seoTitle,
+            events.slice(0, 20).map((e) => ({
+              name: pick(e.name, locale),
+              url: absolute(`/events/${e.slug}`)
+            }))
+          ),
+          breadcrumbSchema([
+            { name: "Home", url: absolute("/") },
+            { name: seoTitle, url: absolute("/events") }
+          ])
+        ]}
+      />
       <div className="grain" />
 
       <header className="editorial-rail">

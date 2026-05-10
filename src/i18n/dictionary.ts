@@ -7,6 +7,7 @@ export const dict = {
         work: { en: "WORK", ru: "РАБОТЫ" },
         blog: { en: "BLOG", ru: "БЛОГ" },
         events: { en: "EVENTS", ru: "СОБЫТИЯ" },
+        github: { en: "GITHUB", ru: "GITHUB" },
         resume: { en: "RESUME", ru: "РЕЗЮМЕ" },
         contact: { en: "CONTACT", ru: "КОНТАКТЫ" },
         availableForHire: {

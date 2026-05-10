@@ -2,85 +2,244 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-    <title>Muhammad Aris Septanugroho — Software Engineer & Freelance Full-Stack Developer</title>
+    <!-- Defaults — react-helmet-async overrides per-route at runtime -->
+    <title>Aris Septanugroho — AI Engineer · Platform Engineer · Full-Stack Developer</title>
     <meta
       name="description"
-      content="Freelance Software Engineer & Full-Stack Developer specializing in web apps, AI/RAG systems, real-time platforms, and data automation. Available for hire — based in Saint Petersburg."
+      content="AI Engineer, Platform Engineer, and Full-Stack Developer. Production data, RAG pipelines, self-hosted Docker infrastructure on GCP. Open to senior roles and freelance."
     />
     <meta
       name="keywords"
-      content="Aris Septanugroho, фриланс разработчик, Software Engineer Санкт-Петербург, Full-Stack разработчик, AI engineer, RAG, Next.js разработчик, Go разработчик, Python разработчик, hire developer, нанять разработчика"
+      content="Aris Septanugroho, Mhmdaris15, AI Engineer, Platform Engineer, DevOps, Full-Stack Developer, Data Scientist, Cloud Infrastructure, Docker, GCP, Coolify, Self-Hosted Cloud, Machine Learning, RAG, React Developer, Go Developer, Python, TypeScript, Saint Petersburg"
     />
     <meta name="author" content="Muhammad Aris Septanugroho" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 
-    <!-- hreflang for bilingual SEO -->
-    <link rel="canonical" href="https://aris-portfolio.vercel.app/" />
-    <link rel="alternate" hreflang="en" href="https://aris-portfolio.vercel.app/" />
-    <link rel="alternate" hreflang="ru" href="https://aris-portfolio.vercel.app/ru" />
-    <link rel="alternate" hreflang="x-default" href="https://aris-portfolio.vercel.app/" />
+    <!-- Theme + PWA -->
+    <meta name="theme-color" content="#0b080c" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#0b080c" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="manifest" href="/manifest.webmanifest" />
 
-    <!-- Open Graph -->
+    <!-- Geo (Yandex / international SEO signal) -->
+    <meta name="geo.region" content="RU-SPE" />
+    <meta name="geo.placename" content="Saint Petersburg" />
+    <meta name="geo.position" content="59.9343;30.3351" />
+    <meta name="ICBM" content="59.9343, 30.3351" />
+
+    <!-- Search Console / Webmaster Tools verification — set via env before build -->
+    <!-- <meta name="google-site-verification" content="VERIFICATION_TOKEN" /> -->
+    <!-- <meta name="yandex-verification" content="VERIFICATION_TOKEN" /> -->
+    <!-- <meta name="msvalidate.01" content="VERIFICATION_TOKEN" /> -->
+
+    <!-- Canonical (per-page values supplied by Helmet at runtime) -->
+    <link rel="canonical" href="https://aris-septanugroho-portfolio.vercel.app/" />
+    <link rel="alternate" hreflang="en" href="https://aris-septanugroho-portfolio.vercel.app/" />
+    <link rel="alternate" hreflang="ru" href="https://aris-septanugroho-portfolio.vercel.app/ru" />
+    <link rel="alternate" hreflang="x-default" href="https://aris-septanugroho-portfolio.vercel.app/" />
+
+    <!-- Performance: preconnect + DNS-prefetch for third parties -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/jpeg" href="/images/photo-aris-professional.jpeg" />
+    <link rel="apple-touch-icon" href="/images/photo-aris-professional.jpeg" />
+
+    <!-- Default Open Graph (Helmet overrides per route) -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Muhammad Aris Septanugroho — Freelance Software Engineer" />
-    <meta
-      property="og:description"
-      content="Freelance Software Engineer building modern web apps, AI/RAG systems, real-time platforms, and data automation. Available for hire."
-    />
-    <meta property="og:image" content="/images/photo-aris-professional.jpeg" />
-    <meta property="og:url" content="https://aris-portfolio.vercel.app/" />
+    <meta property="og:title" content="Aris Septanugroho — AI Engineer · Platform Engineer" />
+    <meta property="og:description" content="AI Engineer and Platform Engineer building production systems — RAG pipelines, real-time platforms, self-hosted Docker infrastructure." />
+    <meta property="og:image" content="https://aris-septanugroho-portfolio.vercel.app/images/photo-aris-professional.jpeg" />
+    <meta property="og:image:alt" content="Muhammad Aris Septanugroho — Engineer & Platform Builder" />
+    <meta property="og:url" content="https://aris-septanugroho-portfolio.vercel.app/" />
+    <meta property="og:site_name" content="Muhammad Aris Septanugroho" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="ru_RU" />
 
-    <!-- Twitter Card -->
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Muhammad Aris Septanugroho — Freelance Software Engineer" />
-    <meta
-      name="twitter:description"
-      content="Freelance Software Engineer building modern web apps, AI/RAG systems, real-time platforms, and data automation. Available for hire."
-    />
-    <meta name="twitter:image" content="/images/photo-aris-professional.jpeg" />
+    <meta name="twitter:title" content="Aris Septanugroho — AI Engineer · Platform Engineer" />
+    <meta name="twitter:description" content="AI Engineer and Platform Engineer building production systems — RAG pipelines, real-time platforms, self-hosted Docker infrastructure." />
+    <meta name="twitter:image" content="https://aris-septanugroho-portfolio.vercel.app/images/photo-aris-professional.jpeg" />
 
-    <!-- Structured Data: Person -->
+    <!-- Default Person JSON-LD (Helmet may add more per page) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Muhammad Aris Septanugroho",
-        "alternateName": ["Aris", "Мухаммад Арис Септанугрохо"],
-        "jobTitle": "Software Engineer & Full-Stack Developer",
-        "url": "https://aris-portfolio.vercel.app/",
+        "alternateName": ["Aris", "Mhmdaris15"],
+        "jobTitle": "AI Engineer · Platform Engineer · Full-Stack Developer",
+        "url": "https://aris-septanugroho-portfolio.vercel.app/",
         "email": "muhammadaris1945@gmail.com",
-        "telephone": "+6285814045755",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Saint Petersburg",
-          "addressCountry": "Russia"
+          "addressCountry": "RU"
         },
         "sameAs": [
           "https://github.com/Mhmdaris15",
           "https://www.linkedin.com/in/muhammad-aris-septanugroho/",
-          "https://www.kaggle.com/Mhmdaris15",
-          "https://t.me/irazkisra"
+          "https://www.kaggle.com/Mhmdaris15"
         ],
         "knowsAbout": [
-          "Full-Stack Development",
-          "Golang",
-          "Python",
-          "Next.js",
-          "React",
-          "AI / RAG Systems",
-          "Data Engineering",
-          "WebSockets"
-        ],
-        "knowsLanguage": ["English", "Indonesian", "Russian", "German"]
+          "AI Engineering",
+          "Platform Engineering",
+          "Cloud Infrastructure",
+          "Docker",
+          "Google Cloud Platform",
+          "Coolify",
+          "Machine Learning",
+          "RAG",
+          "Full-Stack Development"
+        ]
       }
     </script>
+    <!-- First-paint boot splash. Pure CSS so it shows instantly, before
+         React parses. The app removes #boot-splash once mounted. -->
+    <style>
+      #boot-splash {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: grid;
+        place-items: center;
+        background: #0b080c;
+        color: #f4ede0;
+        font-family: system-ui, -apple-system, sans-serif;
+        opacity: 1;
+        transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+      }
+      #boot-splash.is-leaving { opacity: 0; pointer-events: none; }
+      #boot-splash::before,
+      #boot-splash::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(120px);
+        pointer-events: none;
+      }
+      #boot-splash::before {
+        width: 520px; height: 520px;
+        background: radial-gradient(circle, rgba(194,164,255,0.4), transparent 60%);
+        top: -120px; left: -120px;
+      }
+      #boot-splash::after {
+        width: 600px; height: 600px;
+        background: radial-gradient(circle, rgba(120,200,255,0.28), transparent 60%);
+        bottom: -180px; right: -180px;
+      }
+      .bs-center {
+        position: relative;
+        display: flex; flex-direction: column; align-items: center; gap: 32px;
+        z-index: 1;
+      }
+      .bs-eyebrow {
+        font-size: 11px; letter-spacing: 2.4px; text-transform: uppercase;
+        color: rgba(244,237,224,0.55);
+        display: inline-flex; align-items: center; gap: 12px;
+      }
+      .bs-eyebrow::before, .bs-eyebrow::after {
+        content: ""; width: 24px; height: 1px; background: rgba(244,237,224,0.3);
+      }
+      .bs-mono {
+        font-size: clamp(4.5rem, 10vw, 7rem); font-weight: 300;
+        letter-spacing: -0.05em; line-height: 1; font-style: italic;
+      }
+      .bs-mono .bs-mid { color: #c2a4ff; opacity: 0.7; font-style: normal; margin: 0 0.04em; }
+      .bs-status {
+        font-family: ui-monospace, "JetBrains Mono", Consolas, monospace;
+        font-size: 12px; letter-spacing: 1.4px;
+        color: rgba(244,237,224,0.65);
+        display: inline-flex; align-items: center; gap: 10px;
+      }
+      .bs-dot {
+        width: 6px; height: 6px; border-radius: 50%; background: #4cd964;
+        box-shadow: 0 0 8px #4cd964;
+        animation: bs-pulse 2s ease-in-out infinite;
+      }
+      @keyframes bs-pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50%      { opacity: 0.4; transform: scale(0.85); }
+      }
+      .bs-bar {
+        width: 220px; height: 2px;
+        background: rgba(244,237,224,0.08); border-radius: 1px;
+        overflow: hidden; position: relative;
+      }
+      .bs-bar::before {
+        content: ""; position: absolute; inset: 0 auto 0 0;
+        width: 30%;
+        background: linear-gradient(90deg, transparent, rgba(244,237,224,0.6), transparent);
+        animation: bs-glint 1.6s cubic-bezier(0.4,0,0.2,1) infinite;
+      }
+      @keyframes bs-glint {
+        0%   { transform: translateX(-100%); }
+        100% { transform: translateX(400%); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .bs-dot, .bs-bar::before { animation: none; }
+        #boot-splash { transition: opacity 0.2s ease; }
+      }
+    </style>
   </head>
   <body>
+    <div id="boot-splash" aria-label="Loading the portfolio" role="status">
+      <div class="bs-center">
+        <span class="bs-eyebrow">Aris · Portfolio</span>
+        <div class="bs-mono" aria-hidden>
+          <span>A</span><span class="bs-mid">·</span><span>S</span>
+        </div>
+        <div class="bs-status">
+          <span class="bs-dot"></span>
+          <span>Initializing systems</span>
+        </div>
+        <div class="bs-bar"></div>
+      </div>
+    </div>
     <div id="root"></div>
+    <noscript>
+      <p style="font-family: system-ui, sans-serif; padding: 24px; color: #f4ede0; background: #0b080c;">
+        This portfolio is best viewed with JavaScript enabled. Static fallback URLs:
+        <a href="/blog" style="color: #c2a4ff;">Blog</a> ·
+        <a href="/myworks" style="color: #c2a4ff;">Works</a> ·
+        <a href="/resume" style="color: #c2a4ff;">Resume</a>
+      </p>
+    </noscript>
+    <script>
+      // Fade out the boot splash once React has mounted something into #root.
+      (function () {
+        var splash = document.getElementById("boot-splash");
+        if (!splash) return;
+        var root = document.getElementById("root");
+        // Fail-safe: never block past 8s even if React errors out.
+        var hardTimeout = setTimeout(remove, 8000);
+        function remove() {
+          if (!splash) return;
+          splash.classList.add("is-leaving");
+          setTimeout(function () { splash && splash.remove(); }, 600);
+          splash = null;
+          clearTimeout(hardTimeout);
+        }
+        var obs = new MutationObserver(function () {
+          if (root.firstElementChild) {
+            obs.disconnect();
+            // Wait one paint frame so the React tree's own animations get a head start.
+            requestAnimationFrame(function () {
+              setTimeout(remove, 60);
+            });
+          }
+        });
+        obs.observe(root, { childList: true });
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

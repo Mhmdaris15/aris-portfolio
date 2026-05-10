@@ -13,6 +13,9 @@ import { resume } from "../data/resume";
 import { useLocale } from "../i18n/LocaleContext";
 import { dict, t } from "../i18n/dictionary";
 import LanguageSwitcher from "../components/LanguageSwitcher";
+import SeoHead from "../seo/SeoHead";
+import { personSchema, breadcrumbSchema } from "../seo/schema";
+import { absolute } from "../seo/siteConfig";
 import "../styles/editorial.css";
 import "./Resume.css";
 
@@ -29,8 +32,30 @@ const Resume = () => {
   let sectionCount = 0;
   const num = () => String(++sectionCount).padStart(2, "0");
 
+  const seoTitle =
+    locale === "ru"
+      ? "Резюме — AI Engineer · Platform Engineer · Full-Stack"
+      : "Resume — AI Engineer · Platform Engineer · Full-Stack";
+  const seoDesc =
+    locale === "ru"
+      ? "Резюме Мухаммада Ариса Септанугрохо: AI Systems Engineer и Platform Engineer с 3+ годами production-опыта в data, AI и cloud-инфраструктуре."
+      : "Resume of Muhammad Aris Septanugroho — AI Systems Engineer and Platform Engineer with 3+ years of production experience in data, AI, and cloud infrastructure.";
+
   return (
     <div className="resume-page">
+      <SeoHead
+        path="/resume"
+        title={seoTitle}
+        description={seoDesc}
+        ogType="profile"
+        jsonLd={[
+          personSchema(),
+          breadcrumbSchema([
+            { name: "Home", url: absolute("/") },
+            { name: seoTitle, url: absolute("/resume") }
+          ])
+        ]}
+      />
       <div className="grain" />
 
       <div className="resume-toolbar no-print">

@@ -65,7 +65,55 @@ export const coverPrompts = {
     "websockets-at-scale-pbsi":
         "a network of glowing nodes pulsing in synchrony, packets traveling between them as small bright comets, dark editorial space, real-time energy",
     "prototype-to-production-llm":
-        "a polished prototype object inside a glass display case, evolving into a robust industrial-scale machine on the right, sense of transformation across stages"
+        "a polished prototype object inside a glass display case, evolving into a robust industrial-scale machine on the right, sense of transformation across stages",
+
+    /* ─── GitHub showcase covers (output: public/images/github/<slug>.png) ─── */
+    "self-hosted-cloud-platform":
+        "isometric cinematic render of a single illuminated server VM at center, surrounded by orbiting containerized service nodes — web, API, database, AI, observability — connected by glowing fiber lines, cloud topology composition, dark editorial space, subtle lavender accent",
+    "erpnext-recursive":
+        "exploded-view technical schematic of stacked Docker container layers, blueprint-precision line drawings on dark paper, multi-tenant architecture suggested by parallel structure",
+    "tina-cms-self-hosted":
+        "minimalist editorial composition of a glass content panel hovering over a stack of git-versioned document pages, soft lavender backlight, refined and architectural",
+    "ragemini":
+        "abstract neural retrieval pipeline: a beam of light passes through stacks of translucent documents, particles of relevant text catch the light and converge into a glowing response shape on the right, cinematic and conceptual",
+    "aimo-competition":
+        "abstract tokens flowing through a continuous-batching pipeline, mathematical equations dissolving into vectors, GPU-warm light, cinematic motion, suggestion of LLM reasoning and self-consistency",
+    "batik-clothes-generator":
+        "abstract diffusion patterns gradually resolving from noise into refined batik motifs, fabric folds with subtle Indonesian heritage geometry, soft volumetric light, premium fashion-tech aesthetic",
+    "propensity-model":
+        "elegant analytical visualization of a calibrated probability curve over a constellation of customer data points, gradient-boosted tree silhouettes faint in the background, data-science editorial composition",
+    "idcard-detector":
+        "macro shot of a translucent ID card with structured-data fields highlighted in lavender, a faint face-recognition keypoint mesh overlay, dark editorial KYC aesthetic",
+    "recursivedine-backend":
+        "topology view of order events flowing from customer to kitchen via a glowing WebSocket pulse, payment confirmation node lit in green, refined restaurant-tech infrastructure visualization",
+    "live-scoring-app":
+        "concentric pulses radiating from a single live-scoring origin to hundreds of viewer nodes in a network, real-time energy, cinematic dark editorial space, sports-tech with depth",
+    "run-terminate-exe-automation":
+        "minimalist control-panel composition with a single glowing play/stop toggle radiating commands across a network of remote servers, clean architectural feel",
+    "tresno-boedoyo":
+        "soulbound-token glyph suspended over an abstract Indonesian heritage motif, blockchain-volunteer matching as connected node graph, cultural-tech editorial composition",
+    "jaga-wana":
+        "topographical geo-storytelling map with luminous indigenous community markers overlaid on a dark forested terrain, PostGIS precision, social-impact editorial",
+    "permiraspb-cms":
+        "headless-CMS abstraction: a content tree extending into multiple delivery surfaces (web, mobile, social) via glowing API channels, refined and structural",
+    "cashier-app":
+        "minimalist POS terminal silhouette with a stream of receipts lifting into a translucent cloud, subtle Indonesian retail aesthetic, warm editorial light",
+    "berufsvernetzen-frontend":
+        "graph of alumni profile nodes with connection lines forming a constellation, gentle academic editorial palette, sense of community network",
+    "analytics-engineer-assignment":
+        "schematic of an invoice JSON dissolving into structured fields, with deliberately glitched / drifting fields highlighted in amber — chaos-engineering aesthetic, refined",
+    "linkedin-scraping":
+        "headless browser silhouette with structured job rows extracting in luminous threads to the right, automation editorial composition",
+    "coderun-winter-challenge":
+        "stack of programming problems being solved in real time, AI-driven solution traces glowing, checkpoint-resume motif suggested by parallel timelines",
+    "neuro-sync":
+        "biometric pulse waveform morphing into a calming geometric pattern, subtle cognitive-health aesthetic, gentle and futuristic",
+    "neimark-hackathon-lisa":
+        "compass-rose abstraction over a Saint Petersburg silhouette, document and reminder icons orbiting like satellites, student-life editorial composition",
+    "recursive-landing-page":
+        "modular landing-page wireframe components floating in mid-assembly, Shadcn-inspired precision, dark/light duality split through center",
+    "tracepointspb":
+        "dark glassmorphism panels with bilingual flyer-distribution motifs, elegant marketing aesthetic, futuristic startup branding"
 };
 
 /**

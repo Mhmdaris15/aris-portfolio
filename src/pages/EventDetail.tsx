@@ -10,6 +10,9 @@ import {
 } from "../data/events";
 import { config } from "../config";
 import { useLocale, pick } from "../i18n/LocaleContext";
+import SeoHead from "../seo/SeoHead";
+import { eventSchema, breadcrumbSchema } from "../seo/schema";
+import { absolute } from "../seo/siteConfig";
 import "../styles/editorial.css";
 import "./EventDetail.css";
 
@@ -160,8 +163,41 @@ const EventDetail = () => {
   const sections =
     locale === "ru" ? event.ru?.sections : event.en?.sections;
 
+  const eventUrl = absolute(`/events/${event.slug}`);
+  const eventName = pick(event.name, locale);
+  const eventDesc = pick(event.description, locale);
+
   return (
     <div ref={root} className="editorial ed-page">
+      <SeoHead
+        path={`/events/${event.slug}`}
+        title={`${eventName} — ${pick(event.city, locale)}`}
+        description={eventDesc}
+        image={event.cover || undefined}
+        imageAlt={eventName}
+        ogType="article"
+        tags={event.tags}
+        jsonLd={[
+          eventSchema({
+            name: eventName,
+            description: eventDesc,
+            url: eventUrl,
+            startDate: event.date,
+            endDate: event.endDate,
+            locationName: pick(event.venue, locale),
+            locationAddress: pick(event.city, locale),
+            locale
+          }),
+          breadcrumbSchema([
+            { name: "Home", url: absolute("/") },
+            {
+              name: locale === "ru" ? "События" : "Events",
+              url: absolute("/events")
+            },
+            { name: eventName, url: eventUrl }
+          ])
+        ]}
+      />
       <div className="grain" />
 
       <header className="editorial-rail">

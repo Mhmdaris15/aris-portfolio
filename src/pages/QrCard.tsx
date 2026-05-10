@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useLocale, pick } from "../i18n/LocaleContext";
 import { config } from "../config";
+import SeoHead from "../seo/SeoHead";
 import "../styles/editorial.css";
 import "./QrCard.css";
 
@@ -67,6 +68,16 @@ const QrCard = () => {
 
     return (
         <div className="editorial qr-page">
+            <SeoHead
+                path="/qr"
+                title={locale === "ru" ? "QR-карточка" : "QR Card"}
+                description={
+                    locale === "ru"
+                        ? "QR-карточка для сканирования на встречах и хакатонах — ведёт прямо на портфолио."
+                        : "QR card for scanning at meetups and hackathons — points to the portfolio."
+                }
+                noIndex
+            />
             <div className="grain" />
 
             {/* Top rail — hidden in present mode for a clean canvas */}

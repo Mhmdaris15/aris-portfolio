@@ -6,6 +6,9 @@ import { config } from "../config";
 import ProjectCover from "../components/ProjectCover";
 import { useLocale } from "../i18n/LocaleContext";
 import { dict, t } from "../i18n/dictionary";
+import SeoHead from "../seo/SeoHead";
+import { creativeWorkSchema, breadcrumbSchema } from "../seo/schema";
+import { absolute } from "../seo/siteConfig";
 import "../styles/editorial.css";
 import "./ProjectDetail.css";
 
@@ -108,8 +111,40 @@ const ProjectDetail = () => {
       : `Hi Aris,\n\nI saw your work on "${title}" and I'd like to discuss something similar.\n\nProject brief:\n- \n\nThanks!`
   )}`;
 
+  const projectUrl = absolute(`/works/${project.slug}`);
+  const projectKeywords = project.technologies.split(",").map((s) => s.trim());
+
   return (
     <div ref={root} className="editorial pd-page">
+      <SeoHead
+        path={`/works/${project.slug}`}
+        title={`${title} — ${t(project.category, locale)}`}
+        description={t(project.description, locale)}
+        image={project.image}
+        imageAlt={title}
+        ogType="article"
+        tags={projectKeywords}
+        jsonLd={[
+          creativeWorkSchema({
+            name: title,
+            description: t(project.description, locale),
+            url: projectUrl,
+            keywords: projectKeywords,
+            locale,
+            dateCreated: project.year + "-01-01",
+            image: project.image,
+            codeRepository: project.github || undefined
+          }),
+          breadcrumbSchema([
+            { name: "Home", url: absolute("/") },
+            {
+              name: locale === "ru" ? "Работы" : "Works",
+              url: absolute("/myworks")
+            },
+            { name: title, url: projectUrl }
+          ])
+        ]}
+      />
       <div className="grain" />
 
       <header className="editorial-rail">

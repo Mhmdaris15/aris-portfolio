@@ -65,24 +65,19 @@ const Navbar = () => {
   return (
     <>
       <div className="header">
-        <a href={href("/")} className="navbar-title" data-cursor="disable">
-          {t(config.developer.name, locale)}
-        </a>
-        {config.availability.open && (
-          <span className="navbar-availability" data-cursor="disable">
-            <span className="navbar-availability-dot" />
-            {t(dict.nav.availableForHire, locale)}
-          </span>
-        )}
-        <a
-          href={`mailto:${config.contact.email}?subject=${encodeURIComponent(
-            "Project Inquiry"
-          )}`}
-          className="navbar-connect"
-          data-cursor="disable"
-        >
-          {config.contact.email}
-        </a>
+        <div className="navbar-left">
+          <a href={href("/")} className="navbar-title" data-cursor="disable">
+            {t(config.developer.name, locale)}
+          </a>
+          {config.availability.open && (
+            <span className="navbar-availability" data-cursor="disable">
+              <span className="navbar-availability-dot" />
+              <span className="navbar-availability-text">
+                {t(dict.nav.availableForHire, locale)}
+              </span>
+            </span>
+          )}
+        </div>
         <ul>
           <li>
             <a data-href="#about" href="#about">
@@ -97,6 +92,11 @@ const Navbar = () => {
           <li>
             <a data-href="#work" href="#work">
               <HoverLinks text={t(dict.nav.work, locale)} />
+            </a>
+          </li>
+          <li>
+            <a href={href("/github")}>
+              <HoverLinks text={t(dict.nav.github, locale)} />
             </a>
           </li>
           <li>

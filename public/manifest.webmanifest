@@ -1,0 +1,28 @@
+{
+  "name": "Muhammad Aris Septanugroho — Engineering Portfolio",
+  "short_name": "Aris · Portfolio",
+  "description": "AI Engineer, Platform Engineer, and Full-Stack Developer. Production systems, RAG pipelines, self-hosted Docker infrastructure.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b080c",
+  "theme_color": "#0b080c",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["productivity", "business", "developer-tools"],
+  "icons": [
+    {
+      "src": "/images/photo-aris-professional.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/photo-aris-professional.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

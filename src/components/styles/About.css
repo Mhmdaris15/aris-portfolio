@@ -1,101 +1,265 @@
+/* === About — editorial card, smaller fonts, structured rhythm === */
+
 .about-section {
   display: flex;
   align-items: center;
-  justify-content: left;
-  place-items: center;
+  justify-content: flex-start;
   position: relative;
-  opacity: 1;
-  height: auto;
   width: var(--cWidth);
   margin: auto;
+  padding: 80px 0;
 }
+
 .about-me {
-  padding: 40px 0px;
-  padding-bottom: 0;
   width: 100%;
-  max-width: calc(100% - 15px);
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
-.about-me h3 {
-  font-size: 18px;
+
+/* Header rise group — small eyebrow + tight tagline + italic tail */
+.about-rise {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 11px;
+  letter-spacing: 2.4px;
   text-transform: uppercase;
-  letter-spacing: 4px;
-  font-weight: 400;
-  color: var(--accentColor);
-  margin-bottom: 15px;
+  color: rgba(244, 237, 224, 0.55);
+  font-weight: 500;
 }
 
-.about-me p {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 26px;
-  letter-spacing: 0.5px;
-  word-spacing: 2px;
+.about-eyebrow > span:first-child::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: rgba(244, 237, 224, 0.4);
+  margin-right: 12px;
+  vertical-align: middle;
 }
 
+.about-eyebrow-num {
+  color: rgba(244, 237, 224, 0.4);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tagline — Fraunces serif, restrained size, NOT 600-weight bold */
+.about-tagline {
+  font-family: var(--font-serif, "Fraunces", serif);
+  font-weight: 300;
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+  color: #f4ede0;
+  margin: 0;
+  font-variation-settings: "opsz" 80, "SOFT" 60;
+}
+
+/* Italic prose tail */
+.about-tail {
+  font-family: var(--font-serif, "Fraunces", serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.55;
+  color: rgba(244, 237, 224, 0.7);
+  margin: 0;
+  max-width: 520px;
+  font-variation-settings: "opsz" 18, "SOFT" 100;
+}
+
+/* Hairline rules separating sections */
+.about-rule {
+  height: 1px;
+  background: rgba(244, 237, 224, 0.12);
+  transform-origin: left;
+}
+
+/* "Currently studying" block */
+.about-reading {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-section-label {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 10.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(244, 237, 224, 0.45);
+  font-weight: 500;
+}
+
+.about-reading-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-reading-row {
+  display: grid;
+  grid-template-columns: 28px auto 1fr auto;
+  gap: 14px;
+  align-items: baseline;
+  padding: 9px 0;
+  font-size: 13.5px;
+  position: relative;
+}
+
+.about-reading-num {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 10.5px;
+  letter-spacing: 1.4px;
+  color: rgba(244, 237, 224, 0.4);
+  font-variant-numeric: tabular-nums;
+}
+
+.about-reading-name {
+  font-family: var(--font-sans, "Geist", sans-serif);
+  font-weight: 500;
+  color: #f4ede0;
+  letter-spacing: -0.01em;
+  font-size: 14px;
+}
+
+/* Dotted leader between name and note — magazine TOC vibe */
+.about-reading-dots {
+  border-bottom: 1px dotted rgba(244, 237, 224, 0.22);
+  height: 1px;
+  align-self: end;
+  position: relative;
+  top: -3px;
+}
+
+.about-reading-note {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 10.5px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(244, 237, 224, 0.55);
+  text-align: right;
+}
+
+.about-reading-row::before {
+  /* Subtle accent dot that brightens on hover */
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(194, 164, 255, 0.25);
+  transform: translateY(-50%);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.about-reading-row:hover::before {
+  background: var(--accentColor, #c2a4ff);
+  transform: translateY(-50%) scale(1.6);
+}
+
+.about-reading-row:hover .about-reading-name {
+  color: var(--accentColor, #c2a4ff);
+}
+
+/* Three-up fact grid at the foot */
+.about-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.about-fact {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.about-fact-label {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 9.5px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(244, 237, 224, 0.4);
+}
+
+.about-fact-value {
+  font-family: var(--font-serif, "Fraunces", serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #f4ede0;
+  font-variation-settings: "opsz" 18, "SOFT" 80;
+}
+
+/* Compatibility shims — splitText in MainContainer/utils targets these */
 .about-me .split-word {
   display: inline-block;
-  margin-right: 0.3em;
 }
 
 .about-me .split-line {
   display: block;
 }
 
+/* Responsive */
 @media only screen and (min-width: 600px) {
   .about-section {
     justify-content: center;
   }
-  .about-me {
-    width: 500px;
-  }
-  .about-me h3 {
-    font-size: 22px;
-    letter-spacing: 6px;
-  }
-  .about-me p {
-    font-size: 28px;
-    line-height: 32px;
-  }
 }
+
 @media only screen and (min-width: 768px) {
   .about-me {
-    width: 500px;
-    max-width: calc(100% - 70px);
-    transform: translateY(0%);
-  }
-  .about-me h3 {
-    font-size: 25px;
-    letter-spacing: 7px;
-  }
-  .about-me p {
-    font-size: 33px;
-    line-height: 36px;
-  }
-  .about-section {
-    opacity: 1;
+    max-width: 600px;
   }
 }
+
 @media only screen and (min-width: 1025px) {
   .about-section {
     width: var(--cWidth);
-    justify-content: right;
+    justify-content: flex-end;
     max-width: 1920px;
     height: var(--vh);
-    padding: 0px;
-    opacity: 1;
+    padding: 0;
   }
   .about-me {
-    padding: 0px;
     width: 50%;
-  }
-  .about-me p {
-    font-size: 1.9vw;
-    line-height: 2.3vw;
+    max-width: 640px;
   }
 }
-@media only screen and (min-width: 1950px) {
-  .about-me p {
-    font-size: 2.5rem;
-    line-height: 2.7rem;
+
+@media only screen and (max-width: 600px) {
+  .about-facts {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .about-reading-row {
+    grid-template-columns: 28px auto 1fr;
+    gap: 10px;
+  }
+
+  /* On narrow screens, drop the right-aligned monospace note to avoid
+     squeezing the row into illegibility */
+  .about-reading-note {
+    display: none;
+  }
+
+  .about-reading-dots {
+    display: none;
   }
 }

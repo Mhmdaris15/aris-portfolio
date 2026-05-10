@@ -7,6 +7,13 @@ import { config } from "../config";
 import { useLocale } from "../i18n/LocaleContext";
 import { dict, t } from "../i18n/dictionary";
 import BlogCover from "../components/BlogCover";
+import SeoHead from "../seo/SeoHead";
+import {
+  webSiteSchema,
+  itemListSchema,
+  breadcrumbSchema
+} from "../seo/schema";
+import { absolute } from "../seo/siteConfig";
 import "../styles/editorial.css";
 import "./Blog.css";
 
@@ -64,8 +71,36 @@ const Blog = () => {
     return () => ctx.revert();
   }, []);
 
+  const seoTitle =
+    locale === "ru"
+      ? "Блог — заметки об инженерии, AI и system design"
+      : "Blog — notes on engineering, AI, and system design";
+  const seoDesc =
+    locale === "ru"
+      ? "Статьи об инженерии, AI и production-системах: внутренности Postgres, Redis, Kafka, vLLM, RAG-пайплайны, system design в реальной жизни."
+      : "Notes on engineering, AI, and production systems: Postgres internals, Redis, Kafka, vLLM, RAG pipelines, real-world system design.";
+
   return (
     <div ref={root} className="editorial blog">
+      <SeoHead
+        path="/blog"
+        title={seoTitle}
+        description={seoDesc}
+        jsonLd={[
+          webSiteSchema(),
+          itemListSchema(
+            seoTitle,
+            sorted.slice(0, 20).map((p) => ({
+              name: p[locale].title,
+              url: absolute(`/blog/${p.slug}`)
+            }))
+          ),
+          breadcrumbSchema([
+            { name: "Home", url: absolute("/") },
+            { name: "Blog", url: absolute("/blog") }
+          ])
+        ]}
+      />
       <div className="grain" />
 
       <header className="editorial-rail">

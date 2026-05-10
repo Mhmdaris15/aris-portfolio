@@ -76,7 +76,47 @@ export const config = {
         }
     },
     about: {
-        title: { en: "About Me", ru: "Обо мне" },
+        title: { en: "About", ru: "Обо мне" },
+
+        /** Short, punchy lead — used on the home page About card. */
+        short: {
+            en: "Software Engineer obsessed with how things actually work under the hood.",
+            ru: "Software-инженер, помешанный на том, как системы реально работают внутри."
+        },
+
+        /** Italic 1-line follow that explains the obsession. */
+        longTail: {
+            en: "I read source code for sport — because the best way to design systems is to understand the ones already designed well.",
+            ru: "Читаю исходники для удовольствия — лучший способ проектировать системы это понимать те, что уже хорошо спроектированы."
+        },
+
+        /** Live "what I'm studying" list — the centerpiece of the new About. */
+        reading: [
+            { name: "Postgres", note: { en: "Pages, MVCC, vacuum", ru: "Страницы, MVCC, vacuum" } },
+            { name: "Frappe", note: { en: "Metadata-driven framework", ru: "Metadata-driven фреймворк" } },
+            { name: "vLLM", note: { en: "Continuous batching scheduler", ru: "Continuous batching" } },
+            { name: "ChromaDB", note: { en: "HNSW vector index", ru: "Векторный индекс HNSW" } },
+            { name: "Lenis", note: { en: "RAF scroll loop", ru: "RAF scroll-цикл" } },
+            { name: "Anthropic SDK", note: { en: "Tool-call contracts", ru: "Контракт tool-вызовов" } }
+        ],
+
+        /** Three-up status block at the foot. Edit the values when reality changes. */
+        facts: {
+            openTo: {
+                label: { en: "Open to", ru: "Открыт к" },
+                value: { en: "Senior roles & freelance", ru: "Senior-ролям и фрилансу" }
+            },
+            currently: {
+                label: { en: "Currently", ru: "Сейчас" },
+                value: { en: "Shipping system-design writing", ru: "Пишу про system design" }
+            },
+            location: {
+                label: { en: "Based in", ru: "Город" },
+                value: { en: "Saint Petersburg · Bogor", ru: "Санкт-Петербург · Богор" }
+            }
+        },
+
+        /** Long-form description — kept for resume and any places that want the full pitch. */
         description: {
             en: "I'm a Software Engineer and AI Systems Engineer obsessed with how things actually work under the hood. I read source code for sport — Postgres internals, Frappe's framework architecture, vLLM's batching scheduler, ChromaDB's HNSW implementation, Lenis's scroll loop, the Anthropic Messages API contract — because the best way to design systems is to understand the systems other engineers already designed well. My work spans the full stack: data pipelines that move millions of rows reliably, real-time WebSocket platforms, LLM/RAG production systems, and full-stack web apps. I've shipped to real users across Indonesia, the US, and Russia, and the constant thread is system thinking — choosing the right data model, where to put the queue, when to cache, when to fail loudly. I write about what I learn, mentor when I can, and I'm open to senior engineering roles or freelance engagements where the brief is harder than the average ticket.",
             ru: "Я Software-инженер и AI Systems Engineer, помешанный на том, как системы реально работают внутри. Читаю исходники для удовольствия — внутренности Postgres, архитектуру фреймворка Frappe, batching-планировщик vLLM, реализацию HNSW в ChromaDB, scroll-цикл Lenis, контракт Anthropic Messages API — потому что лучший способ проектировать системы это понимать те, что уже хорошо спроектированы другими инженерами. Работаю по всему стеку: data-пайплайны, надёжно перевозящие миллионы строк, real-time платформы на WebSocket, production LLM/RAG системы и full-stack приложения. Запускал в продакшен для реальных пользователей в Индонезии, США и России; общий мотив — системное мышление: выбор модели данных, расположение очереди, когда кэшировать, когда громко падать. Пишу о том, что изучаю, менторю когда могу, и открыт к senior-позициям или фриланс-проектам, где задача сложнее обычного тикета."
@@ -262,6 +302,55 @@ export const config = {
         }
     ] as Experience[],
     projects: [
+        {
+            id: 0,
+            slug: "self-hosted-cloud-platform",
+            title: {
+                en: "Self-Hosted Cloud Platform Infrastructure",
+                ru: "Self-Hosted облачная платформа"
+            },
+            category: {
+                en: "Platform Engineering / DevOps",
+                ru: "Platform Engineering / DevOps"
+            },
+            technologies: "Coolify, Docker, GCP, Cloudflare, Nginx, GitHub Actions, PostgreSQL, Redis, MinIO",
+            image: "/images/project-1.webp",
+            year: "2026",
+            role: { en: "Platform Engineer / Infra Owner", ru: "Platform-инженер / владелец инфры" },
+            description: {
+                en: "A self-hosted cloud platform on Google Cloud — one Coolify-orchestrated VM hosting web apps, APIs, databases, AI services, and monitoring under one wildcard domain. Built so that every future side project deploys with a git push instead of a 30-minute Vercel-or-Render hunt.",
+                ru: "Self-hosted облачная платформа на Google Cloud — одна Coolify-оркестрируемая VM, на которой живут веб-приложения, API, базы, AI-сервисы и мониторинг под одним wildcard-доменом. Построено так, чтобы каждый следующий side-project деплоился через git push, а не через 30 минут поисков «Vercel или Render»."
+            },
+            problem: {
+                en: "Side projects kept getting stuck in deployment limbo — different free-tier providers per stack, lost SSL renewals, ad-hoc DNS, no shared observability. Cost was creeping up across five providers for services that should have shared one box.",
+                ru: "Side-проекты вязли в deployment-лимбе — разные free-tier провайдеры под каждый стек, проваленные обновления SSL, разрозненный DNS, никакой общей observability. Расходы росли по пяти провайдерам ради сервисов, которым достаточно одной машины."
+            },
+            solution: {
+                en: "I provisioned a Google Cloud VM, installed Coolify as the deployment orchestrator, wired Cloudflare DNS for a wildcard domain, and standardized every project as a Docker app behind the platform's reverse proxy. Each new service is one git push and one Coolify entry away from being live with HTTPS.",
+                ru: "Поднял VM на Google Cloud, поставил Coolify как deployment-оркестратор, подключил Cloudflare DNS с wildcard-доменом, стандартизировал каждый проект как Docker-приложение за reverse-proxy платформы. Новый сервис — это один git push и одна запись в Coolify до live с HTTPS."
+            },
+            keyFeatures: {
+                en: [
+                    "Coolify-orchestrated GCP VM hosting all production workloads under one domain",
+                    "Wildcard SSL via Cloudflare + Let's Encrypt — every subdomain is HTTPS by default",
+                    "Reverse-proxy routing for multi-service architecture (web apps, APIs, databases, AI services)",
+                    "GitHub Actions CI for build artifacts; Coolify webhook handles deploy on push",
+                    "Per-project containerized environments with isolated networks and resource limits",
+                    "Centralized observability: container logs, resource metrics, deployment status",
+                    "Portable infrastructure-as-code; the whole platform is reproducible on any VPS"
+                ],
+                ru: [
+                    "Coolify-оркестрируемая GCP VM хостит весь production-трафик под одним доменом",
+                    "Wildcard SSL через Cloudflare + Let's Encrypt — HTTPS на любой поддомен по умолчанию",
+                    "Reverse-proxy роутинг multi-service архитектуры (веб-приложения, API, базы, AI-сервисы)",
+                    "GitHub Actions CI собирает артефакты; Coolify-webhook деплоит на push",
+                    "Контейнерные окружения по проектам с изолированными сетями и лимитами ресурсов",
+                    "Централизованная observability: логи контейнеров, метрики ресурсов, статус деплоев",
+                    "Портативная infrastructure-as-code; вся платформа воспроизводится на любом VPS"
+                ]
+            },
+            github: ""
+        },
         {
             id: 1,
             slug: "recursivedine-backend",
@@ -1557,13 +1646,25 @@ export const config = {
             title: { en: "AI SYSTEMS ENGINEER", ru: "AI SYSTEMS ENGINEER" },
             description: {
                 en: "RAG pipelines, LLM apps, and ML systems — from prototype to production",
-                ru: "RAG-пайплайны, LLM-приложения и ML-системы — от прототипа до production"
+                ru: "RAG-пайплайны, LLM-приложения и ML-системы — от prototype до production"
             },
             details: {
                 en: "Building production AI systems means more than calling an LLM. I design retrieval pipelines (chunking, hybrid search, reranking), LLM orchestration (tool use, MCP, prompt caching), agent loops with hard step budgets, evals in CI, observability, and cost control. Read the model docs and the system internals — vLLM batching scheduler, ChromaDB's HNSW, Anthropic's caching contract — and ship things that don't fall over.",
                 ru: "Production AI-система — это не просто вызов LLM. Проектирую retrieval-пайплайны (chunking, гибридный поиск, реранк), LLM-оркестрацию (tool use, MCP, prompt-кэш), агент-циклы с жёсткими бюджетами шагов, eval в CI, observability и контроль стоимости. Читаю документацию моделей и внутренности систем — batching-планировщик vLLM, HNSW в ChromaDB, контракт кэширования Anthropic — и выпускаю то, что не падает."
             },
             tools: ["RAG", "Gemini", "Claude API", "vLLM", "ChromaDB", "MCP", "FastAPI", "TensorFlow", "Scikit-learn", "Python"]
+        },
+        infra: {
+            title: { en: "PLATFORM ENGINEER", ru: "PLATFORM-ИНЖЕНЕР" },
+            description: {
+                en: "Self-hosted cloud platforms, deployment pipelines, production infrastructure",
+                ru: "Self-hosted платформы, deployment-пайплайны, production-инфраструктура"
+            },
+            details: {
+                en: "I run my own cloud — a Coolify-orchestrated platform on GCP that hosts web apps, APIs, databases, AI services, and monitoring under one domain ecosystem. I think about reverse proxies, wildcard SSL, multi-tenant deployments, and what happens when a Docker network resolves the wrong IP at 3am. Comfortable in a Linux shell, with Cloudflare DNS, GitHub Actions, and the dozen tiny operational details that decide whether a platform feels reliable or feels like a hobby project.",
+                ru: "Запускаю собственное облако — платформу на Coolify поверх GCP, которая хостит веб-приложения, API, базы, AI-сервисы и мониторинг под одной доменной экосистемой. Думаю про reverse-proxy, wildcard SSL, multi-tenant деплои и что происходит, когда Docker-сеть резолвит неверный IP в 3 ночи. Уверенно работаю в Linux-shell, с Cloudflare DNS, GitHub Actions и десятком мелких операционных деталей, отделяющих надёжную платформу от хобби-проекта."
+            },
+            tools: ["Docker", "Coolify", "GCP", "Linux", "Nginx", "Cloudflare", "GitHub Actions", "PostgreSQL", "Redis", "MinIO"]
         }
     }
 };

@@ -6,6 +6,9 @@ import { config } from "../config";
 import ProjectCover from "../components/ProjectCover";
 import { useLocale } from "../i18n/LocaleContext";
 import { dict, t } from "../i18n/dictionary";
+import SeoHead from "../seo/SeoHead";
+import { itemListSchema, breadcrumbSchema } from "../seo/schema";
+import { absolute } from "../seo/siteConfig";
 import "../styles/editorial.css";
 import "./MyWorks.css";
 
@@ -54,8 +57,35 @@ const MyWorks = () => {
 
   const hoveredProject = config.projects.find((p) => p.id === hoveredId);
 
+  const seoTitle =
+    locale === "ru"
+      ? "Все работы — портфолио проектов"
+      : "Works — full project archive";
+  const seoDesc =
+    locale === "ru"
+      ? "Архив проектов: self-hosted облачная платформа, real-time WebSocket системы, RAG-боты, full-stack приложения, data-пайплайны и AI-системы в production."
+      : "Archive of shipped projects: self-hosted cloud platform, real-time WebSocket systems, RAG bots, full-stack apps, data pipelines, and production AI systems.";
+
   return (
     <div ref={root} className="editorial myworks">
+      <SeoHead
+        path="/myworks"
+        title={seoTitle}
+        description={seoDesc}
+        jsonLd={[
+          itemListSchema(
+            seoTitle,
+            config.projects.slice(0, 30).map((p) => ({
+              name: t(p.title, locale),
+              url: absolute(`/works/${p.slug}`)
+            }))
+          ),
+          breadcrumbSchema([
+            { name: "Home", url: absolute("/") },
+            { name: seoTitle, url: absolute("/myworks") }
+          ])
+        ]}
+      />
       <div className="grain" />
 
       {/* Top rail */}

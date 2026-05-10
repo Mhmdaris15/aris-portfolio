@@ -11,7 +11,10 @@ import Work from "./Work";
 import TechStackNew from "./TechStackNew";
 import CallToAction from "./CallToAction";
 import Services from "./Services";
+import Infrastructure from "./Infrastructure";
 import setSplitText from "./utils/splitText";
+import SeoHead from "../seo/SeoHead";
+import { personSchema, webSiteSchema } from "../seo/schema";
 
 const MainContainer = ({ children }: PropsWithChildren) => {
   const [isDesktopView, setIsDesktopView] = useState<boolean>(
@@ -40,14 +43,23 @@ const MainContainer = ({ children }: PropsWithChildren) => {
 
   return (
     <div className="container-main">
+      <SeoHead
+        path="/"
+        title=""
+        jsonLd={[personSchema(), webSiteSchema()]}
+      />
       <Cursor />
       <Navbar />
       <SocialIcons />
       {isDesktopView && !isMobile && children}
       <div className="container-main">
         <Landing />
+        <h1 className="visually-hidden">
+          Muhammad Aris Septanugroho — AI Engineer, Platform Engineer & Full-Stack Developer
+        </h1>
         <About />
         <WhatIDo />
+        <Infrastructure />
         <Services />
         <Career />
         <Work />

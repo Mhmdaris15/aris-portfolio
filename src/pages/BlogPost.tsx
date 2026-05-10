@@ -12,6 +12,9 @@ import { useLocale } from "../i18n/LocaleContext";
 import { dict, t } from "../i18n/dictionary";
 import { renderInline } from "../utils/inlineMarkdown";
 import BlogCover from "../components/BlogCover";
+import SeoHead from "../seo/SeoHead";
+import { blogPostingSchema, breadcrumbSchema } from "../seo/schema";
+import { absolute } from "../seo/siteConfig";
 import "../styles/editorial.css";
 import "./BlogPost.css";
 
@@ -162,8 +165,50 @@ const BlogPost = () => {
     { year: "numeric", month: "long", day: "numeric" }
   );
 
+  // Word count for richer JSON-LD
+  const wordCount = content.sections.reduce((acc, s) => {
+    if (s.type === "p" || s.type === "h2" || s.type === "h3" || s.type === "quote") {
+      return acc + (s.content?.split(/\s+/).filter(Boolean).length || 0);
+    }
+    if (s.type === "list" || s.type === "ordered") {
+      return acc + s.items.reduce((a, i) => a + i.split(/\s+/).filter(Boolean).length, 0);
+    }
+    return acc;
+  }, 0);
+
+  const postUrl = absolute(`/blog/${post.slug}`);
+  const coverPath = `/images/blog/${post.slug}.png`;
+
   return (
     <article ref={root} className="editorial post-page">
+      <SeoHead
+        path={`/blog/${post.slug}`}
+        title={content.title}
+        description={content.excerpt}
+        image={coverPath}
+        imageAlt={content.title}
+        ogType="article"
+        publishedTime={post.date}
+        modifiedTime={post.date}
+        tags={post.tags}
+        jsonLd={[
+          blogPostingSchema({
+            title: content.title,
+            excerpt: content.excerpt,
+            url: postUrl,
+            datePublished: post.date,
+            image: coverPath,
+            keywords: post.tags,
+            locale,
+            wordCount
+          }),
+          breadcrumbSchema([
+            { name: "Home", url: absolute("/") },
+            { name: "Blog", url: absolute("/blog") },
+            { name: content.title, url: postUrl }
+          ])
+        ]}
+      />
       <div className="grain" />
 
       {/* Reading progress strip */}

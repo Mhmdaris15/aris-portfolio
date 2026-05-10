@@ -68,6 +68,34 @@
   padding: 10px 50px;
 }
 
+/* Three-card layout (Systems / AI / Platform) — tighter heights so all
+   three rest at ~33% and one expands cleanly without overflow. */
+.what-box-in--three .what-content {
+  min-height: 33%;
+  padding: 28px 50px;
+}
+
+.what-box-in--three .what-noTouch:hover,
+.what-box-in--three .what-content-active {
+  min-height: 50%;
+  padding: 26px 50px;
+}
+
+.what-box-in--three .what-noTouch:hover ~ .what-content,
+.what-box-in--three:hover .what-noTouch:not(:hover),
+.what-box-in--three .what-content.what-sibling {
+  min-height: 25%;
+  padding: 8px 50px;
+}
+
+.what-box-in--three .what-content h3 {
+  font-size: 28px;
+}
+
+.what-box-in--three {
+  height: 600px;
+}
+
 .what-content h3 {
   font-size: 35px;
   letter-spacing: 1px;

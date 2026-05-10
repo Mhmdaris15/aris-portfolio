@@ -1,0 +1,97 @@
+.nf-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.nf-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: clamp(60px, 9vw, 110px);
+  padding-bottom: clamp(60px, 9vw, 110px);
+}
+
+.nf-title {
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  margin: 18px 0 14px;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+}
+
+.nf-lead {
+  max-width: 620px;
+  margin: 0 0 20px;
+}
+
+.nf-links {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--ink-line);
+  margin-top: 12px;
+}
+
+.nf-link {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 22px;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--ink-line);
+  text-decoration: none;
+  color: var(--paper);
+  transition: padding 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+.nf-link:hover {
+  padding-left: 16px;
+  color: var(--paper);
+}
+
+.nf-link-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  color: var(--paper-faint);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s ease;
+}
+
+.nf-link:hover .nf-link-num {
+  color: var(--accentColor);
+}
+
+.nf-link-label {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  letter-spacing: -0.012em;
+  font-variation-settings: "opsz" 80, "SOFT" 50;
+  transition: font-style 0.3s ease, font-variation-settings 0.3s ease;
+}
+
+.nf-link:hover .nf-link-label {
+  font-style: italic;
+  font-variation-settings: "opsz" 80, "SOFT" 100;
+}
+
+.nf-link-arrow {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--paper-faint);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nf-link:hover .nf-link-arrow {
+  color: var(--accentColor);
+  transform: translateX(6px);
+}
+
+@media (max-width: 600px) {
+  .nf-link {
+    grid-template-columns: 36px 1fr;
+    gap: 14px;
+  }
+  .nf-link-arrow { display: none; }
+}
