@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -19,6 +19,15 @@ const ProjectDetail = () => {
   const { locale, href } = useLocale();
   const root = useRef<HTMLDivElement>(null);
   const project = config.projects.find((p) => p.slug === slug);
+  const [lightbox, setLightbox] = useState<string | null>(null);
+
+  // Close the lightbox with Escape
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setLightbox(null);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox]);
 
   useEffect(() => {
     if (!root.current) return;
@@ -243,6 +252,35 @@ const ProjectDetail = () => {
           </div>
         </section>
 
+        {/* Screenshot gallery (optional) */}
+        {project.gallery && project.gallery.length > 0 && (
+          <section className="pd-gallery">
+            <div className="pd-gallery-head">
+              <span className="editorial-eyebrow">
+                {locale === "ru" ? "Скриншоты" : "Screenshots"}
+              </span>
+              <span className="editorial-marginalia">
+                {String(project.gallery.length).padStart(2, "0")}{" "}
+                {locale === "ru" ? "кадров" : "frames"}
+              </span>
+            </div>
+            <div className="pd-gallery-grid">
+              {project.gallery.map((src, i) => (
+                <button
+                  key={src}
+                  type="button"
+                  className="pd-gallery-item"
+                  onClick={() => setLightbox(src)}
+                  data-cursor="disable"
+                  aria-label={`Open screenshot ${i + 1}`}
+                >
+                  <img src={src} alt={`${title} — ${i + 1}`} loading="lazy" />
+                </button>
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* Problem / Solution as editorial chapters */}
         <section className="pd-narrative">
           <article className="pd-chapter">
@@ -404,6 +442,25 @@ const ProjectDetail = () => {
           </span>
         </footer>
       </div>
+
+      {lightbox && (
+        <div
+          className="pd-lightbox"
+          onClick={() => setLightbox(null)}
+          role="dialog"
+          aria-label="Screenshot viewer"
+        >
+          <button
+            type="button"
+            className="pd-lightbox-close"
+            aria-label="Close"
+            onClick={() => setLightbox(null)}
+          >
+            ×
+          </button>
+          <img src={lightbox} alt="" />
+        </div>
+      )}
     </div>
   );
 };

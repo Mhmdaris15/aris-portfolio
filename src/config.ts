@@ -14,6 +14,8 @@ export interface Project {
     solution: Bilingual<string>;
     keyFeatures: Bilingual<string[]>;
     github: string;
+    /** Optional screenshot gallery — rendered on the project detail page with a lightbox. */
+    gallery?: string[];
 }
 
 export interface Service {
@@ -347,7 +349,15 @@ export const config = {
                     "Kanban-доска плана с 4-вкладочными карточками; публичное интерактивное демо без логина"
                 ]
             },
-            github: ""
+            github: "",
+            gallery: [
+                "/images/projects/svoe-rodnoe/landing-page.png",
+                "/images/projects/svoe-rodnoe/dashboard.png",
+                "/images/projects/svoe-rodnoe/calendar-month.png",
+                "/images/projects/svoe-rodnoe/ai-workspace-starter.png",
+                "/images/projects/svoe-rodnoe/kanban-board.png",
+                "/images/projects/svoe-rodnoe/aarchitecture-design.png"
+            ]
         },
         {
             id: 101,

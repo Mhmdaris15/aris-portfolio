@@ -4,6 +4,99 @@
   padding-bottom: 0;
 }
 
+/* ─── Screenshot gallery ─── */
+.pd-gallery {
+  padding: clamp(40px, 6vw, 70px) 0;
+  border-top: 1px solid var(--ink-line);
+}
+
+.pd-gallery-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 28px;
+}
+
+.pd-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.pd-gallery-item {
+  appearance: none;
+  border: 1px solid var(--ink-line);
+  background: var(--ink-rise, #14101a);
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 4px;
+  aspect-ratio: 16 / 10;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.pd-gallery-item:hover {
+  border-color: var(--accentColor);
+  transform: translateY(-2px);
+}
+
+.pd-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── Lightbox ─── */
+.pd-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  background: rgba(7, 5, 10, 0.94);
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 4vw, 56px);
+  cursor: zoom-out;
+  animation: pd-lightbox-in 0.2s ease;
+}
+
+@keyframes pd-lightbox-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.pd-lightbox img {
+  max-width: 100%;
+  max-height: 92vh;
+  object-fit: contain;
+  border: 1px solid var(--ink-line);
+  border-radius: 4px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.pd-lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--ink-line-strong, rgba(244, 237, 224, 0.2));
+  background: rgba(11, 8, 12, 0.6);
+  color: var(--paper, #f4ede0);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.pd-lightbox-close:hover {
+  border-color: var(--accentColor);
+  transform: rotate(90deg);
+}
+
 /* Hero */
 .pd-hero {
   padding: clamp(40px, 7vw, 90px) 0 clamp(30px, 5vw, 50px);

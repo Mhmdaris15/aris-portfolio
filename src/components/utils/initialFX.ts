@@ -4,7 +4,9 @@ import { lenis } from "../Navbar";
 
 export function initialFX() {
   document.body.style.overflowY = "auto";
-  if (lenis) {
+  // Only let Lenis drive scroll on desktop. On touch/tablet (<=1024px) we
+  // keep native momentum scrolling — starting Lenis there locks the page.
+  if (lenis && window.innerWidth > 1024) {
     lenis.start();
   }
   document.getElementsByTagName("main")[0].classList.add("main-active");

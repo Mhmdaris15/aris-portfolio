@@ -48,10 +48,14 @@ h6 {
   font-family: "Geist", sans-serif;
 }
 
-/* Lenis-controlled smooth scroll on the home page only.
-   Standalone pages (/blog, /myworks, /works/:slug) need native scrolling. */
-body.lenis-locked {
-  overflow: hidden;
+/* Lenis-controlled smooth scroll only runs on the DESKTOP home page, where
+   Lenis drives scroll via transform and needs the native scrollbar hidden.
+   Mobile + tablet (<=1024px) always use native scrolling — see the media
+   query below. Applying the lock desktop-only prevents touch scroll lockups. */
+@media only screen and (min-width: 1025px) {
+  body.lenis-locked {
+    overflow: hidden;
+  }
 }
 
 /* Visually hidden but readable by search engine crawlers and screen readers.
@@ -69,8 +73,9 @@ body.lenis-locked {
   border: 0;
 }
 
-/* Allow scrolling on mobile */
-@media only screen and (max-width: 768px) {
+/* Native scrolling on mobile + tablet (covers the 769–1024 gap that the
+   old 768 breakpoint left locked). */
+@media only screen and (max-width: 1024px) {
   body.lenis-locked {
     overflow: auto !important;
     height: auto !important;

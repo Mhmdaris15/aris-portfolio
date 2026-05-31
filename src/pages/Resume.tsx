@@ -6,6 +6,7 @@ import {
   HiOutlineGlobeAlt,
   HiOutlinePrinter,
   HiOutlineArrowDownTray,
+  HiOutlineDocumentArrowDown,
   HiOutlineSparkles
 } from "react-icons/hi2";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa6";
@@ -76,6 +77,15 @@ const Resume = () => {
             <HiOutlinePrinter />
             <span>{t(dict.resume.print, locale)}</span>
           </button>
+          <a
+            href="/Aris-Septanugroho-Resume.pdf"
+            download
+            className="resume-toolbar-btn"
+            data-cursor="disable"
+          >
+            <HiOutlineDocumentArrowDown />
+            <span>{locale === "ru" ? "ATS PDF" : "ATS PDF"}</span>
+          </a>
           <button
             type="button"
             onClick={handlePrint}
