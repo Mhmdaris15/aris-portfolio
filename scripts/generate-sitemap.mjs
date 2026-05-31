@@ -45,7 +45,7 @@ const eventSlugs = matchAll(
 
 const projectSlugs = matchAll(
     configSrc,
-    /id:\s*\d+,\s*slug:\s*"([^"]+)",\s*title:/g
+    /id:\s*-?\d+,\s*slug:\s*"([^"]+)",\s*title:/g
 );
 
 const blogDates = {};

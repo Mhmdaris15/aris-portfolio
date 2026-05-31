@@ -543,49 +543,75 @@ export const githubProjects: GhProject[] = [
 
     /* ─── Research / hackathons ────────────────────────────────── */
     {
-        slug: "neuro-sync",
-        repo: "Mhmdaris15/neuro-sync",
-        repoName: "neuro-sync",
-        private: true,
+        slug: "yandex-alice-fixer",
+        repo: "Mhmdaris15/yandex-alice-hackaton",
+        repoName: "yandex-alice-hackaton",
+        private: false,
         category: "research",
         tagline: {
-            en: "Cognitive-health hackathon — biometric stress detection + CBT loop",
-            ru: "Хакатон когнитивного здоровья — детекция стресса + CBT loop"
+            en: "Yandex Alice Hackathon — AI fixer for international students (Rust)",
+            ru: "Хакатон Yandex Alice — AI-фиксер для иностранных студентов (Rust)"
         },
         summary: {
-            en: "48-hour hackathon project: biometric stream → stress detection model → AI-generated CBT intervention prompt loop, with environmental control hooks (lights, HVAC) and a privacy-preserving aggregate dashboard.",
-            ru: "48-часовой хакатон: биометрический поток → модель детекции стресса → AI-генерированные CBT prompt-циклы, хуки управления средой (свет, HVAC), агрегированный privacy-friendly дашборд."
+            en: "Rust Axum backend + React PWA, single SurrealDB engine, Yandex AI Studio + Vision OCR + Translate + SpeechKit. Manages student bureaucracy, translates in real time, and falls back to deterministic mocks so the demo never breaks on missing keys.",
+            ru: "Backend на Rust Axum + React PWA, единый движок SurrealDB, Yandex AI Studio + Vision OCR + Translate + SpeechKit. Управляет студенческой бюрократией, переводит в реальном времени и падает в детерминированные mock'и, чтобы демо не ломалось без ключей."
         },
-        stack: ["React 18", "TypeScript", "Tailwind", "Biometrics API"],
-        tags: ["Hackathon", "AI", "Healthcare", "IoT"],
+        stack: ["Rust", "Axum", "SurrealDB", "Yandex AI", "React PWA"],
+        tags: ["Hackathon", "AI", "Rust"],
         metrics: {
             stars: 0, forks: 0,
-            pushedAt: "2026-02-07T22:48:35Z",
-            createdAt: "2026-02-07T22:47:35Z",
-            language: "JavaScript"
+            pushedAt: "2026-04-20T00:00:00Z",
+            createdAt: "2026-04-18T00:00:00Z",
+            language: "Rust"
         },
         lastSyncedAt: SYNCED
     },
     {
-        slug: "neimark-hackathon-lisa",
-        repo: "Mhmdaris15/neimark-hackathon-2026-lisa",
-        repoName: "neimark-hackathon-2026-lisa",
+        slug: "permira-summer-camp-2026",
+        repo: "Mhmdaris15/summercamp-permira-2026",
+        repoName: "summercamp-permira-2026",
         private: false,
-        category: "research",
+        category: "fullstack",
         tagline: {
-            en: "LISA — Indonesian student assistant for life in Saint Petersburg",
-            ru: "LISA — ассистент индонезийских студентов в Санкт-Петербурге"
+            en: "Full-stack camp platform — AI host chatbot, registration, admin CMS",
+            ru: "Full-stack платформа лагеря — AI-чат-бот, регистрация, админ-CMS"
         },
         summary: {
-            en: "Hackathon platform helping Indonesian students in St. Petersburg manage immigration documents, deadlines, community forum, and an AI assistant trained on Russia-specific student procedures.",
-            ru: "Хакатон-платформа для индонезийских студентов в Санкт-Петербурге: иммиграционные документы, дедлайны, форум, AI-ассистент с базой знаний о российских студенческих процедурах."
+            en: "Production-grade platform for an Indonesia–Russia cultural exchange: narrative landing, Gemini host chatbot on an editable knowledge base, multi-step registration with document uploads, and a JWT-protected admin dashboard. Express 5 + SurrealDB embedded, Dockerized and Coolify-ready.",
+            ru: "Production-grade платформа для культурного обмена Индонезия–Россия: нарративный лендинг, Gemini-чат-бот на редактируемой базе знаний, многошаговая регистрация с загрузкой документов и JWT-защищённый админ-дашборд. Express 5 + встроенный SurrealDB, Dockerized и Coolify-ready."
         },
-        stack: ["Go 1.25", "Next.js 16", "MongoDB", "JWT", "Zustand"],
-        tags: ["Hackathon", "Full-Stack", "Community"],
+        stack: ["React 19", "Express 5", "SurrealDB", "Gemini", "Docker"],
+        tags: ["Full-Stack", "AI", "Production"],
+        featured: true,
         metrics: {
             stars: 0, forks: 0,
-            pushedAt: "2026-03-04T23:07:09Z",
-            createdAt: "2026-03-04T23:05:21Z",
+            pushedAt: "2026-05-20T00:00:00Z",
+            createdAt: "2026-04-25T00:00:00Z",
+            language: "TypeScript"
+        },
+        lastSyncedAt: SYNCED
+    },
+    {
+        slug: "permiraspb-landing",
+        repo: "Mhmdaris15/permiraspb-landing",
+        repoName: "permiraspb-landing",
+        private: false,
+        category: "web",
+        tagline: {
+            en: "PERMIRA SPB — scroll-driven editorial exhibition (live)",
+            ru: "PERMIRA SPB — scroll-driven editorial экспозиция (live)"
+        },
+        summary: {
+            en: "Editorial, trilingual, scroll-driven site for the Indonesian Students' Association in Saint Petersburg. React 19 + GSAP + Framer Motion, hand-authored design system, drifting snow, blend-mode cursor, keyboard-navigable galleries. Live at permiraspb.org.",
+            ru: "Editorial, трёхъязычный, scroll-driven сайт Ассоциации индонезийских студентов в Санкт-Петербурге. React 19 + GSAP + Framer Motion, ручная дизайн-система, дрейфующий снег, blend-mode курсор, галереи с навигацией с клавиатуры. Live на permiraspb.org."
+        },
+        stack: ["React 19", "Vite 8", "GSAP", "Framer Motion", "TypeScript"],
+        tags: ["Web", "Editorial", "Landing"],
+        demo: "https://permiraspb.org",
+        metrics: {
+            stars: 0, forks: 0,
+            pushedAt: "2026-05-07T00:00:00Z",
+            createdAt: "2026-04-01T00:00:00Z",
             language: "TypeScript"
         },
         lastSyncedAt: SYNCED

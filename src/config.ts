@@ -80,35 +80,33 @@ export const config = {
 
         /** Short, punchy lead — used on the home page About card. */
         short: {
-            en: "Software Engineer obsessed with how things actually work under the hood.",
-            ru: "Software-инженер, помешанный на том, как системы реально работают внутри."
+            en: "An engineer who loves turning ideas into working software.",
+            ru: "Инженер, который любит превращать идеи в работающий софт."
         },
 
-        /** Italic 1-line follow that explains the obsession. */
+        /** Italic 1-line follow. */
         longTail: {
-            en: "I read source code for sport — because the best way to design systems is to understand the ones already designed well.",
-            ru: "Читаю исходники для удовольствия — лучший способ проектировать системы это понимать те, что уже хорошо спроектированы."
+            en: "I sharpen that in hackathons — real problems, real constraints, real users — and I like to understand what happens behind the system, not just on the surface.",
+            ru: "Оттачиваю это на хакатонах — реальные задачи, реальные ограничения, реальные пользователи — и люблю понимать, что происходит за системой, а не только на поверхности."
         },
 
-        /** Live "what I'm studying" list — the centerpiece of the new About. */
+        /** Centerpiece list — hackathons & competitions (authentic proof of skill). */
         reading: [
-            { name: "Postgres", note: { en: "Pages, MVCC, vacuum", ru: "Страницы, MVCC, vacuum" } },
-            { name: "Frappe", note: { en: "Metadata-driven framework", ru: "Metadata-driven фреймворк" } },
-            { name: "vLLM", note: { en: "Continuous batching scheduler", ru: "Continuous batching" } },
-            { name: "ChromaDB", note: { en: "HNSW vector index", ru: "Векторный индекс HNSW" } },
-            { name: "Lenis", note: { en: "RAF scroll loop", ru: "RAF scroll-цикл" } },
-            { name: "Anthropic SDK", note: { en: "Tool-call contracts", ru: "Контракт tool-вызовов" } }
+            { name: "RSHB.Digital 2026", note: { en: "🥉 3rd · AI farmer marketing", ru: "🥉 3 место · AI-маркетинг для фермеров" } },
+            { name: "Yandex Alice 2026", note: { en: "AI fixer for students", ru: "AI-помощник для студентов" } },
+            { name: "LKS Data Science 2023", note: { en: "🥇 1st · West Java province", ru: "🥇 1 место · Западная Ява" } },
+            { name: "KKSI 2021", note: { en: "🥈 2nd · national", ru: "🥈 2 место · национальный" } }
         ],
 
         /** Three-up status block at the foot. Edit the values when reality changes. */
         facts: {
             openTo: {
                 label: { en: "Open to", ru: "Открыт к" },
-                value: { en: "Senior roles & freelance", ru: "Senior-ролям и фрилансу" }
+                value: { en: "Roles & freelance", ru: "Работе и фрилансу" }
             },
             currently: {
-                label: { en: "Currently", ru: "Сейчас" },
-                value: { en: "Shipping system-design writing", ru: "Пишу про system design" }
+                label: { en: "Latest win", ru: "Последняя награда" },
+                value: { en: "🥉 RSHB Hackathon 2026", ru: "🥉 Хакатон РСХБ 2026" }
             },
             location: {
                 label: { en: "Based in", ru: "Город" },
@@ -116,10 +114,10 @@ export const config = {
             }
         },
 
-        /** Long-form description — kept for resume and any places that want the full pitch. */
+        /** Long-form description — used on the resume and anywhere that wants the full pitch. */
         description: {
-            en: "I'm a Software Engineer and AI Systems Engineer obsessed with how things actually work under the hood. I read source code for sport — Postgres internals, Frappe's framework architecture, vLLM's batching scheduler, ChromaDB's HNSW implementation, Lenis's scroll loop, the Anthropic Messages API contract — because the best way to design systems is to understand the systems other engineers already designed well. My work spans the full stack: data pipelines that move millions of rows reliably, real-time WebSocket platforms, LLM/RAG production systems, and full-stack web apps. I've shipped to real users across Indonesia, the US, and Russia, and the constant thread is system thinking — choosing the right data model, where to put the queue, when to cache, when to fail loudly. I write about what I learn, mentor when I can, and I'm open to senior engineering roles or freelance engagements where the brief is harder than the average ticket.",
-            ru: "Я Software-инженер и AI Systems Engineer, помешанный на том, как системы реально работают внутри. Читаю исходники для удовольствия — внутренности Postgres, архитектуру фреймворка Frappe, batching-планировщик vLLM, реализацию HNSW в ChromaDB, scroll-цикл Lenis, контракт Anthropic Messages API — потому что лучший способ проектировать системы это понимать те, что уже хорошо спроектированы другими инженерами. Работаю по всему стеку: data-пайплайны, надёжно перевозящие миллионы строк, real-time платформы на WebSocket, production LLM/RAG системы и full-stack приложения. Запускал в продакшен для реальных пользователей в Индонезии, США и России; общий мотив — системное мышление: выбор модели данных, расположение очереди, когда кэшировать, когда громко падать. Пишу о том, что изучаю, менторю когда могу, и открыт к senior-позициям или фриланс-проектам, где задача сложнее обычного тикета."
+            en: "I'm a software engineer who likes solving real problems end-to-end — from a rough idea to software people actually use. I've built and shipped full-stack web apps, AI and RAG systems, data pipelines, and real-time platforms for users across Indonesia, the US, and Russia. I compete in hackathons to keep sharpening that instinct under real constraints; recent results include 3rd place at the RSHB.Digital hackathon and 1st place at LKS Data Science. I enjoy going a level deeper than most — understanding what happens behind the system, not just the API on the surface — and I'm always happiest when the problem is harder than the average ticket.",
+            ru: "Я software-инженер, который любит решать реальные задачи целиком — от сырой идеи до софта, которым люди реально пользуются. Создавал и запускал full-stack веб-приложения, AI- и RAG-системы, data-пайплайны и real-time платформы для пользователей в Индонезии, США и России. Участвую в хакатонах, чтобы оттачивать это чутьё в реальных ограничениях; среди недавних результатов — 3 место на хакатоне РСХБ.Цифра и 1 место на LKS Data Science. Люблю копать на уровень глубже большинства — понимать, что происходит за системой, а не только API на поверхности — и счастливее всего, когда задача сложнее обычного тикета."
         }
     },
     experiences: [
@@ -302,6 +300,293 @@ export const config = {
         }
     ] as Experience[],
     projects: [
+        {
+            id: -1,
+            slug: "svoe-rodnoe-farmer-calendar",
+            title: {
+                en: "Своё Родное — AI Farmer Marketing Calendar",
+                ru: "Своё Родное — AI-календарь маркетинга фермера"
+            },
+            category: {
+                en: "AI / Full-Stack · 🥉 RSHB Hackathon",
+                ru: "AI / Full-Stack · 🥉 Хакатон РСХБ"
+            },
+            technologies: "Go, Gin, React, Vite, TypeScript, SurrealDB, Gemini, Docker",
+            image: "/images/projects/svoe-rodnoe/landing-page.png",
+            year: "2026",
+            role: { en: "Full-Stack & AI Engineer", ru: "Full-Stack и AI-инженер" },
+            description: {
+                en: "🥉 3rd place (Case №1) at the RSHB.Digital hackathon at NRNU MEPhI. An AI event-marketing platform that turns a farmer's product catalog into ready-to-launch multi-channel campaigns. The bank's CPO confirmed the winning concepts will be built into the real svoe-rodnoe.ru product.",
+                ru: "🥉 3 место (Кейс №1) на хакатоне РСХБ.Цифра в НИЯУ МИФИ. AI-платформа событийного маркетинга, превращающая каталог товаров фермера в готовые к запуску мультиканальные кампании. CPO банка подтвердил, что победившие концепты реализуют в реальном продукте svoe-rodnoe.ru."
+            },
+            problem: {
+                en: "A farmer on svoe-rodnoe.ru has products to sell but no marketing team, no time, and no clear answer to 'what should I promote this week, and how?'. Holidays, seasons, Orthodox calendar, and marketplace trends all create sales windows — but matching them to a specific catalog and producing on-brand content is hours of work most farmers never do.",
+                ru: "У фермера на svoe-rodnoe.ru есть товары, но нет маркетинговой команды, времени и ясного ответа на «что продвигать на этой неделе и как?». Праздники, сезоны, православный календарь и тренды маркетплейса создают окна продаж — но сопоставить их с конкретным каталогом и сделать контент в стиле бренда это часы работы, которых у фермера нет."
+            },
+            solution: {
+                en: "A 7-stage AI pipeline: ingest the SKU catalog, tag products (rules + AI), match against a 40+ event knowledge base via vector search, generate campaigns with Gemini across six channels (push, story, blog, recipe, social, repeat-buyer chat), and rank by a deterministic ROI engine. The architecture bet was SurrealDB-native — graph, vector, realtime, and AI memory in one engine instead of Pinecone + Neo4j + Redis + Postgres.",
+                ru: "7-этапный AI-пайплайн: загрузить каталог SKU, разметить товары (правила + AI), сопоставить с базой знаний из 40+ событий через векторный поиск, сгенерировать кампании через Gemini по шести каналам (push, story, блог, рецепт, соцсети, чат повторных покупок) и отранжировать детерминированным ROI-движком. Архитектурная ставка — SurrealDB-native: граф, вектор, realtime и AI-память в одном движке вместо Pinecone + Neo4j + Redis + Postgres."
+            },
+            keyFeatures: {
+                en: [
+                    "🥉 3rd place, Case №1 — 32 teams from 11 universities, only 10 reached finals",
+                    "SurrealDB-native: graph + vector + realtime + AI memory in a single engine",
+                    "7-stage pipeline: catalog → tag → match → generate → ROI rank → plan → publish",
+                    "Six content channels generated in a parallel Gemini fan-out, each schema-structured",
+                    "40+ curated events across 6 categories (state & Orthodox holidays, seasons, themed weeks, trends)",
+                    "Deterministic Go ROI engine with hover-to-inspect assumptions on every number",
+                    "Kanban plan board with 4-tab campaign cards; public no-login interactive demo"
+                ],
+                ru: [
+                    "🥉 3 место, Кейс №1 — 32 команды из 11 вузов, в финал вышли только 10",
+                    "SurrealDB-native: граф + вектор + realtime + AI-память в одном движке",
+                    "7-этапный пайплайн: каталог → разметка → матчинг → генерация → ROI-ранк → план → публикация",
+                    "Шесть контент-каналов в параллельном Gemini fan-out, каждый со своей JSON-схемой",
+                    "40+ курированных событий по 6 категориям (госпраздники, православный календарь, сезоны, тематические недели, тренды)",
+                    "Детерминированный ROI-движок на Go с допущениями при наведении на каждое число",
+                    "Kanban-доска плана с 4-вкладочными карточками; публичное интерактивное демо без логина"
+                ]
+            },
+            github: ""
+        },
+        {
+            id: 101,
+            slug: "permiraspb-landing",
+            title: { en: "PERMIRA Saint Petersburg", ru: "ПЕРМИРА Санкт-Петербург" },
+            category: { en: "Editorial Landing / Web", ru: "Editorial Landing / Web" },
+            technologies: "React 19, TypeScript, Vite 8, Framer Motion, GSAP",
+            image: "/images/placeholder.webp",
+            year: "2026",
+            role: { en: "Frontend Engineer", ru: "Frontend-инженер" },
+            description: {
+                en: "A scroll-driven digital exhibition for the Saint Petersburg chapter of the Indonesian Students' Association in Russia (PERMIRA), affiliated with the Indonesian Embassy in Moscow. Editorial, catalogue-like, trilingual — Indonesian warmth carried across the Neva. Live at permiraspb.org.",
+                ru: "Scroll-driven цифровая экспозиция для петербургского отделения Ассоциации индонезийских студентов в России (ПЕРМИРА) при Посольстве Индонезии в Москве. Editorial, каталожная, трёхъязычная. Live на permiraspb.org."
+            },
+            problem: {
+                en: "A student association needed a digital presence that felt like culture, not a generic org page — bridging Indonesian identity with Saint Petersburg's cold urban editorial atmosphere, in three alphabets.",
+                ru: "Студенческой ассоциации нужно было цифровое присутствие, ощущающееся как культура, а не дженерик-страница организации — мост между индонезийской идентичностью и холодным урбан-editorial Петербурга, в трёх алфавитах."
+            },
+            solution: {
+                en: "Designed as an HTML/CSS/JS prototype, then rebuilt pixel-perfect as a React 19 component architecture. Eight editorial sections — manifesto, departments, programs, real event galleries with lightbox, animated census counters, cabinet portraits — with drifting snow, film grain, a blend-mode cursor, hero parallax, and IntersectionObserver scroll reveals.",
+                ru: "Спроектирована как HTML/CSS/JS-прототип, затем пересобрана pixel-perfect в архитектуру компонентов React 19. Восемь editorial-секций — манифест, департаменты, программы, реальные галереи событий с lightbox, анимированные счётчики переписи, портреты кабинета — с дрейфующим снегом, film grain, blend-mode курсором, hero-параллаксом и scroll-reveal на IntersectionObserver."
+            },
+            keyFeatures: {
+                en: [
+                    "Trilingual code-switching (Indonesian / Russian / English)",
+                    "Hand-authored design system — no CSS framework",
+                    "Keyboard-navigable lightbox over real event galleries",
+                    "Hero parallax + IntersectionObserver scroll reveals",
+                    "Live Moscow clock, coordinate rails, custom blend-mode cursor",
+                    "Image optimisation pipeline with sharp"
+                ],
+                ru: [
+                    "Трёхъязычное code-switching (индонезийский / русский / английский)",
+                    "Ручная дизайн-система — без CSS-фреймворка",
+                    "Lightbox с навигацией с клавиатуры над реальными галереями",
+                    "Hero-параллакс + scroll-reveal на IntersectionObserver",
+                    "Живые часы Москвы, координатные рейлы, blend-mode курсор",
+                    "Пайплайн оптимизации изображений на sharp"
+                ]
+            },
+            github: "https://github.com/Mhmdaris15/permiraspb-landing"
+        },
+        {
+            id: 102,
+            slug: "permira-summer-camp-2026",
+            title: { en: "PERMIRA Summer Camp 2026", ru: "PERMIRA Summer Camp 2026" },
+            category: { en: "Full-Stack / AI", ru: "Full-Stack / AI" },
+            technologies: "React 19, Express 5, SurrealDB, Gemini, Docker, Tailwind v4",
+            image: "/images/placeholder.webp",
+            year: "2026",
+            role: { en: "Full-Stack & AI Engineer", ru: "Full-Stack и AI-инженер" },
+            description: {
+                en: "A production-grade web platform for a three-day Indonesia–Russia cultural exchange — immersive landing site, AI host chatbot, participant registration with document uploads, and an admin dashboard with a knowledge-base CMS.",
+                ru: "Production-grade платформа для трёхдневного культурного обмена Индонезия–Россия — иммерсивный лендинг, AI-чат-бот хоста, регистрация участников с загрузкой документов и админ-дашборд с CMS базы знаний."
+            },
+            problem: {
+                en: "Organizing a multi-day cultural camp meant handling registrations, passport and consent document uploads, applicant review, and answering the same questions over and over — all manually, across spreadsheets and chats.",
+                ru: "Организация многодневного культурного лагеря означала обработку регистраций, загрузку паспортов и согласий, ревью заявок и бесконечные одни и те же вопросы — всё вручную, в таблицах и чатах."
+            },
+            solution: {
+                en: "Built a full-stack platform: a narrative landing site with GSAP/Lenis choreography, a Gemini-powered host chatbot grounded in an admin-editable knowledge base, a multi-step registration form with multipart document uploads and honeypot anti-spam, and a JWT-protected admin dashboard with a participants table and status workflow. Dockerized and Coolify-ready.",
+                ru: "Построил full-stack платформу: нарративный лендинг с GSAP/Lenis-хореографией, Gemini-чат-бот хоста на редактируемой админом базе знаний, многошаговую форму регистрации с multipart-загрузкой документов и honeypot-антиспамом, и JWT-защищённый админ-дашборд с таблицей участников и статус-воркфлоу. Dockerized и Coolify-ready."
+            },
+            keyFeatures: {
+                en: [
+                    "AI host chatbot — Gemini, multi-turn, admin-editable knowledge base",
+                    "Multi-step registration with passport + consent uploads",
+                    "Admin dashboard: participants table, status workflow, KB CMS",
+                    "SurrealDB embedded in-process with JSON snapshotting",
+                    "Express 5 backend — helmet, rate limiting, structured pino logging",
+                    "Dockerized, compose-ready, Coolify-compatible with persistent volumes"
+                ],
+                ru: [
+                    "AI-чат-бот хоста — Gemini, multi-turn, редактируемая админом база знаний",
+                    "Многошаговая регистрация с загрузкой паспорта и согласия",
+                    "Админ-дашборд: таблица участников, статус-воркфлоу, CMS базы знаний",
+                    "SurrealDB встроенный in-process с JSON-снапшотами",
+                    "Backend на Express 5 — helmet, rate limiting, структурное pino-логирование",
+                    "Dockerized, compose-ready, Coolify-совместим с persistent volumes"
+                ]
+            },
+            github: ""
+        },
+        {
+            id: 103,
+            slug: "yandex-alice-fixer",
+            title: { en: "Welcome to Russia — AI Fixer", ru: "Welcome to Russia — AI Fixer" },
+            category: { en: "AI / Hackathon", ru: "AI / Хакатон" },
+            technologies: "Rust, Axum, SurrealDB, Yandex AI Studio, SpeechKit, React PWA",
+            image: "/images/placeholder.webp",
+            year: "2026",
+            role: { en: "Full-Stack & AI Engineer", ru: "Full-Stack и AI-инженер" },
+            description: {
+                en: "Yandex Alice Hackathon entry — an AI-native 'fixer' that manages bureaucracy for international students, translates in real time, and connects them to a geo-aware community. Rust Axum backend, React PWA front, SurrealDB single-engine, Yandex AI Studio + Vision + SpeechKit.",
+                ru: "Заявка на хакатон Yandex Alice — AI-native «фиксер», который управляет бюрократией иностранных студентов, переводит в реальном времени и связывает их с гео-сообществом. Backend на Rust Axum, фронт React PWA, SurrealDB как единый движок, Yandex AI Studio + Vision + SpeechKit."
+            },
+            problem: {
+                en: "International students in Russia face document deadlines, language barriers, and isolation. The information they need is scattered, in Russian, and time-sensitive — and missing a visa or migration deadline has real consequences.",
+                ru: "Иностранные студенты в России сталкиваются с дедлайнами документов, языковым барьером и изоляцией. Нужная информация разбросана, на русском и срочная — а пропуск визового или миграционного дедлайна имеет реальные последствия."
+            },
+            solution: {
+                en: "A Rust Axum backend with a single SurrealDB engine holding the student → document_status → location graph, seed-guarded against duplicate rows. A centralized Yandex client handles IAM token refresh and fans out to AI Studio, Vision OCR, Translate, and SpeechKit. Every route falls back to deterministic mocks when keys are absent — so the demo is never broken. Offline-first React PWA on the front.",
+                ru: "Backend на Rust Axum с единым движком SurrealDB, держащим граф student → document_status → location, защищённый от дублей при рестарте. Централизованный Yandex-клиент обновляет IAM-токены и фан-аутит в AI Studio, Vision OCR, Translate и SpeechKit. Каждый роут падает в детерминированные mock'и при отсутствии ключей — демо никогда не ломается. Offline-first React PWA на фронте."
+            },
+            keyFeatures: {
+                en: [
+                    "Rust Axum API with SurrealDB graph (student → document → location)",
+                    "Yandex AI Studio + Vision OCR + Translate + SpeechKit STT/TTS",
+                    "Centralized IAM token refresh (12h tokens, refreshed at T-5min)",
+                    "Mock-fallback on every route — demo survives missing credentials",
+                    "Telegram proactive expiry alerts for document deadlines",
+                    "Offline-first React PWA (vite-plugin-pwa)"
+                ],
+                ru: [
+                    "API на Rust Axum с SurrealDB-графом (student → document → location)",
+                    "Yandex AI Studio + Vision OCR + Translate + SpeechKit STT/TTS",
+                    "Централизованный IAM token refresh (12ч токены, T-5мин)",
+                    "Mock-fallback на каждом роуте — демо переживает отсутствие ключей",
+                    "Проактивные Telegram-алерты об истечении документов",
+                    "Offline-first React PWA (vite-plugin-pwa)"
+                ]
+            },
+            github: ""
+        },
+        {
+            id: 104,
+            slug: "kalpataru-website",
+            title: { en: "Kalpataru — Indonesian Café", ru: "Kalpataru — индонезийское кафе" },
+            category: { en: "Editorial Landing / Web", ru: "Editorial Landing / Web" },
+            technologies: "React 19, TypeScript, Vite, GSAP, Framer Motion",
+            image: "/images/placeholder.webp",
+            year: "2026",
+            role: { en: "Frontend Engineer", ru: "Frontend-инженер" },
+            description: {
+                en: "An immersive site for Kalpataru — the first Indonesian café in Saint Petersburg, serving heritage recipes with Wayang artistry and the warmth of Java in the heart of Russia. Cultural ambiance rendered as a cinematic web experience.",
+                ru: "Иммерсивный сайт для Kalpataru — первого индонезийского кафе в Санкт-Петербурге, подающего наследные рецепты с искусством Wayang и теплом Явы в сердце России. Культурная атмосфера как кинематографичный веб-опыт."
+            },
+            problem: {
+                en: "A new café with a deep cultural story needed a site that conveyed heritage and atmosphere — not a template menu page, but something that made a visitor feel the warmth before they ever walked in.",
+                ru: "Новому кафе с глубокой культурной историей нужен был сайт, передающий наследие и атмосферу — не шаблонная страница меню, а нечто, дающее посетителю почувствовать тепло до того, как он войдёт."
+            },
+            solution: {
+                en: "Built a polished React 19 experience with a custom design system: page transitions, scroll progress, image reveals, magnetic buttons, a cursor glow, ornamental dividers, and a reservation modal — all choreographed with GSAP and Framer Motion around a Banyan-tree (kalpataru) motif.",
+                ru: "Построил отполированный React 19 опыт с кастомной дизайн-системой: переходы страниц, scroll progress, image reveals, магнитные кнопки, cursor glow, орнаментальные разделители и модалка бронирования — всё с хореографией GSAP и Framer Motion вокруг мотива дерева баньян (kalpataru)."
+            },
+            keyFeatures: {
+                en: [
+                    "Custom design system around a Banyan-tree cultural motif",
+                    "GSAP + Framer Motion page transitions and image reveals",
+                    "Magnetic buttons, cursor glow, ornamental dividers",
+                    "Reservation modal with validation",
+                    "Scroll progress and section reveal choreography"
+                ],
+                ru: [
+                    "Кастомная дизайн-система вокруг культурного мотива баньяна",
+                    "Переходы страниц и image reveals на GSAP + Framer Motion",
+                    "Магнитные кнопки, cursor glow, орнаментальные разделители",
+                    "Модалка бронирования с валидацией",
+                    "Scroll progress и хореография появления секций"
+                ]
+            },
+            github: "https://github.com/Mhmdaris15/kalpataru-website"
+        },
+        {
+            id: 105,
+            slug: "yagoda-glamping",
+            title: { en: "YAGODA Glamping", ru: "YAGODA Глэмпинг" },
+            category: { en: "Landing / Marketing", ru: "Landing / Marketing" },
+            technologies: "Next.js 16, React 19, GSAP, Tailwind",
+            image: "/images/placeholder.webp",
+            year: "2026",
+            role: { en: "Frontend Engineer", ru: "Frontend-инженер" },
+            description: {
+                en: "A marketing site for YAGODA — a glamping retreat on the banks of the Neva in Shlisselburg: three cabins, a banya, a restaurant, and events. Built to make a weekend escape feel inevitable.",
+                ru: "Маркетинговый сайт для YAGODA — глэмпинга на берегу Невы в Шлиссельбурге: три домика, баня, ресторан и мероприятия. Сделан так, чтобы побег на выходные казался неизбежным."
+            },
+            problem: {
+                en: "A boutique glamping business needed a site that sold the atmosphere — the riverside calm, the cabins, the banya — to city dwellers deciding where to spend a weekend.",
+                ru: "Бутиковому глэмпинг-бизнесу нужен был сайт, продающий атмосферу — речной покой, домики, баню — горожанам, решающим, где провести выходные."
+            },
+            solution: {
+                en: "A Next.js 16 marketing site with GSAP-choreographed scroll, cabin and service sections, and a warm riverside design language. Russian-first copy aimed at the Saint Petersburg weekend-getaway market.",
+                ru: "Маркетинговый сайт на Next.js 16 с GSAP-хореографией скролла, секциями домиков и услуг и тёплым прибрежным дизайн-языком. Контент на русском, нацеленный на петербургский рынок weekend-побегов."
+            },
+            keyFeatures: {
+                en: [
+                    "Next.js 16 App Router with Geist typography",
+                    "GSAP scroll choreography",
+                    "Cabin and service detail sections",
+                    "Russian-first marketing copy",
+                    "Warm riverside design system"
+                ],
+                ru: [
+                    "Next.js 16 App Router с типографикой Geist",
+                    "GSAP-хореография скролла",
+                    "Детальные секции домиков и услуг",
+                    "Маркетинговый контент на русском",
+                    "Тёплая прибрежная дизайн-система"
+                ]
+            },
+            github: "https://github.com/Mhmdaris15/yagoda-glamping"
+        },
+        {
+            id: 106,
+            slug: "batik-clothes-generator",
+            title: { en: "Batik Clothes Generator", ru: "Генератор одежды с батиком" },
+            category: { en: "AI / Concept", ru: "AI / Концепт" },
+            technologies: "React, TypeScript, AI Image Generation",
+            image: "/images/placeholder.webp",
+            year: "2026",
+            role: { en: "Creator", ru: "Создатель" },
+            description: {
+                en: "An experiment in applying AI image generation to Indonesian batik — generating wearable clothing patterns from prompts, exploring how a centuries-old craft tradition can be remixed with modern generative tooling.",
+                ru: "Эксперимент с применением AI-генерации изображений к индонезийскому батику — генерация носимых паттернов одежды из промптов, исследование того, как многовековая ремесленная традиция миксуется с современным генеративным инструментарием."
+            },
+            problem: {
+                en: "Batik is rich but slow to design by hand, and modern fashion iterates fast. The question: can generative tooling propose batik-faithful patterns quickly enough to be a real design aid, without losing the cultural grammar?",
+                ru: "Батик богат, но медленен в ручном дизайне, а современная мода итерирует быстро. Вопрос: может ли генеративный инструментарий предлагать верные батику паттерны достаточно быстро, чтобы быть реальным дизайн-помощником, не теряя культурную грамматику?"
+            },
+            solution: {
+                en: "A focused front-end concept that turns text descriptions of batik motifs into clothing-pattern previews — a design exploration of generative AI applied to cultural craft, kept intentionally lean and prompt-driven.",
+                ru: "Сфокусированный фронтенд-концепт, превращающий текстовые описания мотивов батика в превью паттернов одежды — дизайн-исследование генеративного AI, применённого к культурному ремеслу, намеренно lean и prompt-driven."
+            },
+            keyFeatures: {
+                en: [
+                    "Prompt-to-pattern batik generation concept",
+                    "Cultural-craft-aware design exploration",
+                    "Lean React + TypeScript front end",
+                    "Focus on batik-faithful visual grammar"
+                ],
+                ru: [
+                    "Концепт генерации батика prompt-to-pattern",
+                    "Дизайн-исследование с уважением к культурному ремеслу",
+                    "Lean фронтенд на React + TypeScript",
+                    "Фокус на верной батику визуальной грамматике"
+                ]
+            },
+            github: "https://github.com/Mhmdaris15/batik-clothes-generator"
+        },
         {
             id: 0,
             slug: "self-hosted-cloud-platform",
@@ -545,84 +830,6 @@ export const config = {
                 ]
             },
             github: "https://github.com/Mhmdaris15/whatsapp-bot-rag"
-        },
-        {
-            id: 6,
-            slug: "neuro-sync",
-            title: { en: "NEURO-SYNC Campus", ru: "NEURO-SYNC Campus" },
-            category: { en: "AI / IoT / Real-time", ru: "AI / IoT / Real-time" },
-            technologies: "React 18, Vite, TypeScript, Tailwind, Biometrics",
-            image: "/images/placeholder.webp",
-            year: "2025",
-            role: { en: "Frontend / AI Integration", ru: "Frontend и AI-интеграция" },
-            description: {
-                en: "Hackathon project for cognitive health management with stress detection, AI-powered CBT interventions, environmental controls, and a digital twin visualization for campus wellness.",
-                ru: "Хакатон-проект по когнитивному здоровью: детекция стресса, AI-вмешательства на базе КПТ, управление средой и цифровой двойник для wellness кампуса."
-            },
-            problem: {
-                en: "Universities lacked early-warning signals for student burnout and had no proactive intervention loop tied to environmental conditions like noise, lighting, and air quality.",
-                ru: "У университетов не было ранних сигналов выгорания студентов и проактивных интервенций, связанных со средой — шумом, освещением и качеством воздуха."
-            },
-            solution: {
-                en: "NEURO-SYNC reads biometric data, detects stress patterns, and triggers either an AI-led CBT prompt or environmental adjustments (lighting / HVAC). A digital twin visualizes campus wellness in real-time for administrators.",
-                ru: "NEURO-SYNC считывает биометрию, выявляет паттерны стресса и запускает либо AI-сессию КПТ, либо изменения среды (свет / климат). Цифровой двойник показывает wellness кампуса в реальном времени для администрации."
-            },
-            keyFeatures: {
-                en: [
-                    "Stress detection from biometric streams",
-                    "AI-driven CBT micro-interventions",
-                    "Environmental control hooks (lighting / HVAC)",
-                    "Real-time campus digital twin",
-                    "Privacy-preserving aggregate dashboards"
-                ],
-                ru: [
-                    "Детекция стресса из биометрических потоков",
-                    "AI-микроинтервенции на базе КПТ",
-                    "Управление средой (свет / климат)",
-                    "Real-time цифровой двойник кампуса",
-                    "Агрегированные дашборды с защитой приватности"
-                ]
-            },
-            github: "https://github.com/Mhmdaris15/neuro-sync"
-        },
-        {
-            id: 7,
-            slug: "lisa-student-assistant",
-            title: { en: "LISA — Indonesian Student Assistant", ru: "LISA — помощник для студентов из Индонезии" },
-            category: { en: "Full-Stack / Hackathon", ru: "Full-Stack / Хакатон" },
-            technologies: "Go, Next.js 16, MongoDB, JWT, Zustand",
-            image: "/images/placeholder.webp",
-            year: "2026",
-            role: { en: "Full-Stack Developer", ru: "Full-Stack разработчик" },
-            description: {
-                en: "Hackathon platform helping Indonesian students in St. Petersburg manage documents, reminders, a community forum, and access AI chatbot support.",
-                ru: "Хакатон-платформа для индонезийских студентов в Санкт-Петербурге: документы, напоминания, форум и AI-чат-бот."
-            },
-            problem: {
-                en: "Indonesian students in St. Petersburg juggle visa documents, university paperwork, and isolation — with information scattered across Telegram groups, embassy PDFs, and WhatsApp threads.",
-                ru: "Индонезийские студенты в Санкт-Петербурге одновременно ведут визовые документы, университетские бумаги и борются с изоляцией — а информация разбросана по Telegram, PDF посольства и чатам WhatsApp."
-            },
-            solution: {
-                en: "LISA centralizes document deadlines, exposes a community forum, and embeds an AI assistant trained on Indonesian-Russian student knowledge. Built with Go for the API layer and Next.js 16 for the client.",
-                ru: "LISA централизует дедлайны документов, даёт форум сообщества и встраивает AI-ассистента на базе знаний о жизни индонезийских студентов в России. API на Go, клиент на Next.js 16."
-            },
-            keyFeatures: {
-                en: [
-                    "Document tracker with deadline reminders",
-                    "Community forum with moderation",
-                    "AI assistant for visa / university questions",
-                    "JWT auth with Zustand state",
-                    "MongoDB-backed flexible content schemas"
-                ],
-                ru: [
-                    "Трекер документов с напоминаниями о дедлайнах",
-                    "Форум сообщества с модерацией",
-                    "AI-ассистент по визам и универу",
-                    "JWT-авторизация и Zustand-состояние",
-                    "Гибкие схемы контента на MongoDB"
-                ]
-            },
-            github: "https://github.com/Mhmdaris15/neimark-hackathon-2026"
         },
         {
             id: 8,

@@ -49,91 +49,105 @@ export interface TechEvent {
 
 export const events: TechEvent[] = [
     {
-        slug: "neimark-hackathon-2026",
+        slug: "rshb-digital-hackathon-2026",
         name: {
-            en: "Neimark Hackathon 2026",
-            ru: "Хакатон «Неймарк» 2026"
+            en: "RSHB.Digital Hackathon — НИЯУ МИФИ",
+            ru: "Хакатон РСХБ.Цифра — НИЯУ МИФИ"
         },
         type: "hackathon",
-        date: "2026-02-15",
-        endDate: "2026-02-17",
-        venue: { en: "ITMO University", ru: "Университет ИТМО" },
-        city: { en: "Saint Petersburg", ru: "Санкт-Петербург" },
+        date: "2026-05-28",
+        endDate: "2026-05-29",
+        venue: {
+            en: "NRNU MEPhI (Moscow Engineering Physics Institute)",
+            ru: "НИЯУ МИФИ"
+        },
+        city: { en: "Moscow", ru: "Москва" },
         country: "RU",
         role: {
-            en: "Full-Stack Developer · Team Lead",
-            ru: "Full-Stack разработчик · тимлид"
+            en: "Full-Stack & AI Engineer",
+            ru: "Full-Stack и AI-инженер"
         },
-        result: { en: "Finalist", ru: "Финалист" },
+        result: { en: "🥉 3rd Place — Case №1", ru: "🥉 3 место — Кейс №1" },
         description: {
-            en: "Built LISA — Lumina Indonesian Student Assistant — a 48-hour hackathon project helping Indonesian students in St. Petersburg manage documents, deadlines, and community.",
-            ru: "Построили LISA — Lumina Indonesian Student Assistant — 48-часовой проект для индонезийских студентов в Санкт-Петербурге: документы, дедлайны, сообщество."
+            en: "Built «Своё Родное: Farmer Marketing Calendar» — an AI-powered event-marketing platform for farmers on Rosselkhozbank's svoe-rodnoe.ru marketplace. Took 3rd place in Case №1 against 32 teams from 11 of Russia's leading universities. The bank's CPO confirmed the winning concepts will be built into the real product.",
+            ru: "Построил «Своё Родное: календарь фермера» — AI-платформу событийного маркетинга для фермеров на маркетплейсе Россельхозбанка svoe-rodnoe.ru. Занял 3 место в Кейсе №1 среди 32 команд из 11 ведущих вузов страны. CPO банка подтвердил, что победившие концепты реализуют в реальном продукте."
         },
-        tags: ["Hackathon", "Go", "Next.js", "AI"],
-        cover: "",
-        gallery: [],
+        tags: ["Hackathon", "AI", "Go", "React", "SurrealDB", "Gemini", "3rd Place"],
+        cover: "/images/hackathons/RSHB/rshb-1.jpg",
+        gallery: [
+            "/images/hackathons/RSHB/rshb-1.jpg",
+            "/images/hackathons/RSHB/rshb-2.jpg",
+            "/images/hackathons/RSHB/rshb-3.jpg",
+            "/images/hackathons/RSHB/rshb-4.jpg",
+            "/images/hackathons/RSHB/rshb-5.jpg",
+            "/images/hackathons/RSHB/rshb-6.jpg",
+            "/images/hackathons/RSHB/rshb-7.jpg",
+            "/images/hackathons/RSHB/rshb-8.jpg"
+        ],
         links: [
             {
-                label: { en: "GitHub Repo", ru: "Репозиторий GitHub" },
-                url: "https://github.com/Mhmdaris15/neimark-hackathon-2026"
+                label: { en: "Official announcement (Telegram)", ru: "Официальный анонс (Telegram)" },
+                url: "https://t.me/rshbdigital/1532"
             }
         ],
         highlights: {
             en: [
-                "Shipped a working full-stack MVP in 48 hours: Go API + Next.js 16 + MongoDB",
-                "Designed the document-tracker schema with deadline reminders",
-                "Embedded an AI assistant trained on Indonesian-Russian student knowledge",
-                "Presented to a panel of judges and Indonesian community leaders"
+                "🥉 3rd place in Case №1 — selection round drew 128 participants, 32 teams, 11 universities; only 10 teams reached the finals",
+                "Shipped a production-grade MVP: React + Vite + TS frontend, Go (Gin) API, SurrealDB, and Gemini for structured campaign generation",
+                "Designed a SurrealDB-native architecture — graph + vector + realtime + AI memory in a single engine (no Pinecone, no Neo4j, no Redis)",
+                "Built a 7-stage AI pipeline turning a farmer's SKU catalog into ready-to-launch multi-channel campaigns (push, story, blog, recipe, social)",
+                "Curated a 40+ event knowledge base across 6 categories (state & Orthodox holidays, professional days, seasons, themed weeks, marketplace trends)",
+                "Deterministic Go ROI engine with hover-to-inspect assumption tooltips on every revenue number",
+                "RSHB's CPO confirmed the best concepts will ship to real farmers — built for the user, not just the demo"
             ],
             ru: [
-                "Запустили работающий full-stack MVP за 48 часов: Go API + Next.js 16 + MongoDB",
-                "Спроектировал схему трекера документов с напоминаниями о дедлайнах",
-                "Встроили AI-ассистента на базе знаний индонезийских студентов в России",
-                "Презентовали жюри и лидерам индонезийского сообщества"
+                "🥉 3 место в Кейсе №1 — отборочный этап собрал 128 участников, 32 команды, 11 вузов; в финал вышли только 10 команд",
+                "Запустил production-grade MVP: фронтенд React + Vite + TS, API на Go (Gin), SurrealDB и Gemini для генерации кампаний в структурированном JSON",
+                "Спроектировал SurrealDB-native архитектуру — граф + вектор + realtime + AI-память в одном движке (без Pinecone, Neo4j и Redis)",
+                "Построил 7-этапный AI-пайплайн, превращающий каталог SKU фермера в готовые к запуску мультиканальные кампании (push, story, блог, рецепт, соцсети)",
+                "Собрал базу знаний из 40+ событий по 6 категориям (госпраздники, православный календарь, профессиональные дни, сезоны, тематические недели, тренды маркетплейса)",
+                "Детерминированный ROI-движок на Go с подсказками-допущениями при наведении на каждое число выручки",
+                "CPO РСХБ подтвердил, что лучшие концепты дойдут до реальных фермеров — строили для пользователя, а не ради демо"
             ]
-        }
-    },
-    {
-        slug: "neuro-sync-hackathon-2025",
-        name: {
-            en: "NEURO-SYNC Campus Wellness Hackathon",
-            ru: "Хакатон NEURO-SYNC Campus Wellness"
         },
-        type: "hackathon",
-        date: "2025-09-20",
-        endDate: "2025-09-22",
-        venue: { en: "ITMO Campus Innovation Lab", ru: "ITMO Campus Innovation Lab" },
-        city: { en: "Saint Petersburg", ru: "Санкт-Петербург" },
-        country: "RU",
-        role: {
-            en: "Frontend & AI Integration",
-            ru: "Frontend и AI-интеграция"
+        en: {
+            sections: [
+                { type: "h2", content: "The case" },
+                { type: "p", content: "Rosselkhozbank (RSHB) runs svoe-rodnoe.ru — a marketplace where Russian farmers sell directly to consumers. Case №1 asked teams to build a tool that helps a farmer decide what to promote, when, and how — turning the calendar of holidays, seasons, and marketplace trends into concrete, revenue-driving campaigns. The hard constraint: it had to be built for a real farmer who has minutes, not hours, and no marketing team." },
+                { type: "h2", content: "What we built" },
+                { type: "p", content: "«Своё Родное: Farmer Marketing Calendar» ingests a farmer's product catalog, matches each SKU against a curated knowledge base of 40+ events, and uses Gemini to generate ready-to-launch campaign assets across six channels — push, story, blog, recipe, social, and repeat-buyer chat — with a deterministic ROI engine on top so every suggestion comes with a defensible revenue estimate." },
+                { type: "list", items: [
+                    "Farmer dashboard — KPIs, action cards, revenue forecast",
+                    "40+ event calendar across 6 categories with filters and trends",
+                    "AI workspace with slash commands (/story, /blog) and save-to-any-channel",
+                    "Kanban plan board — proposed → planned → live → done, with 4-tab campaign cards",
+                    "Public no-login interactive demo of the full 7-stage pipeline"
+                ] },
+                { type: "h2", content: "The architecture bet" },
+                { type: "p", content: "The signature technical decision was going SurrealDB-native: one engine handling the graph (farmer → product → event → suggestion relationships), the vector search (SKU-to-event matching via embeddings), realtime updates, and AI memory — instead of stitching together Pinecone + Neo4j + Redis + Postgres. React + Vite + TypeScript on the front, Go (Gin) in the middle, Gemini 2.0-flash for structured JSON generation." },
+                { type: "quote", content: "«Мы провели этот хакатон не ради эксперимента, а чтобы получить работающие цифровые решения для агросектора. Лучшие из представленных концептов мы реализуем» — Андрей Лапин, CPO сервисов «Своё родное» и «Своё вино»." },
+                { type: "h2", content: "The result" },
+                { type: "p", content: "3rd place in Case №1 out of 32 competing teams. The bank's product leadership stated publicly that the winning concepts will be built into the real svoe-rodnoe product — meaning the work wasn't a throwaway prototype, but a blueprint headed toward production for actual farmers." }
+            ]
         },
-        description: {
-            en: "Cognitive-health hackathon: built a stress-detection + AI CBT intervention system with environmental control hooks and a real-time campus digital twin.",
-            ru: "Хакатон по когнитивному здоровью: построили систему детекции стресса + AI-интервенции на КПТ с управлением средой и real-time цифровым двойником кампуса."
-        },
-        tags: ["Hackathon", "AI", "IoT", "Healthcare"],
-        cover: "",
-        gallery: [],
-        links: [
-            {
-                label: { en: "GitHub Repo", ru: "Репозиторий GitHub" },
-                url: "https://github.com/Mhmdaris15/neuro-sync"
-            }
-        ],
-        highlights: {
-            en: [
-                "Wired biometric stream → stress-detection model → CBT prompt loop",
-                "Designed environmental control hooks for lighting and HVAC integration",
-                "Built React 18 + TypeScript front end and digital twin visualization",
-                "Privacy-preserving aggregate dashboards for campus administrators"
-            ],
-            ru: [
-                "Связал биометрический поток → модель детекции стресса → цикл КПТ-подсказок",
-                "Спроектировал хуки управления средой для интеграции света и HVAC",
-                "Построили фронтенд на React 18 + TypeScript и визуализацию цифрового двойника",
-                "Дашборды с агрегацией и защитой приватности для администрации кампуса"
+        ru: {
+            sections: [
+                { type: "h2", content: "Кейс" },
+                { type: "p", content: "Россельхозбанк (РСХБ) развивает svoe-rodnoe.ru — маркетплейс, где российские фермеры продают напрямую покупателям. Кейс №1 просил команды построить инструмент, который помогает фермеру решить, что продвигать, когда и как — превращая календарь праздников, сезонов и трендов маркетплейса в конкретные кампании, растящие выручку. Жёсткое ограничение: строить для реального фермера, у которого есть минуты, а не часы, и нет маркетинговой команды." },
+                { type: "h2", content: "Что мы построили" },
+                { type: "p", content: "«Своё Родное: календарь фермера» загружает каталог товаров фермера, сопоставляет каждый SKU с курированной базой знаний из 40+ событий и через Gemini генерирует готовые к запуску ассеты кампаний по шести каналам — push, story, блог, рецепт, соцсети и чат для повторных покупателей — с детерминированным ROI-движком сверху, чтобы каждое предложение приходило с обоснованной оценкой выручки." },
+                { type: "list", items: [
+                    "Дашборд фермера — KPI, карточки действий, прогноз выручки",
+                    "Календарь 40+ событий по 6 категориям с фильтрами и трендами",
+                    "AI-рабочее пространство со slash-командами (/story, /blog) и сохранением в любой канал",
+                    "Kanban-доска плана — предложено → запланировано → live → готово, с 4-вкладочными карточками кампаний",
+                    "Публичное интерактивное демо без логина — весь 7-этапный пайплайн"
+                ] },
+                { type: "h2", content: "Архитектурная ставка" },
+                { type: "p", content: "Ключевым техническим решением был SurrealDB-native подход: один движок держит граф (связи фермер → товар → событие → предложение), векторный поиск (сопоставление SKU и событий через эмбеддинги), realtime-обновления и AI-память — вместо склейки Pinecone + Neo4j + Redis + Postgres. React + Vite + TypeScript на фронте, Go (Gin) в середине, Gemini 2.0-flash для генерации структурированного JSON." },
+                { type: "quote", content: "«Мы провели этот хакатон не ради эксперимента, а чтобы получить работающие цифровые решения для агросектора. Лучшие из представленных концептов мы реализуем» — Андрей Лапин, CPO сервисов «Своё родное» и «Своё вино»." },
+                { type: "h2", content: "Результат" },
+                { type: "p", content: "3 место в Кейсе №1 из 32 команд. Продуктовое руководство банка публично заявило, что победившие концепты будут реализованы в реальном продукте «Своё Родное» — значит, работа была не одноразовым прототипом, а чертежом на пути в production для настоящих фермеров." }
             ]
         }
     },

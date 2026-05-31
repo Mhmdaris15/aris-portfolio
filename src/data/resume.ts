@@ -70,8 +70,8 @@ export const resume: ResumeData = {
         ru: "Мухаммад Арис Септанугрохо"
     },
     headline: {
-        en: "Systems & AI Engineer · Reads source code · Designs systems before writing them",
-        ru: "Systems & AI Engineer · Читаю исходники · Проектирую системы до того, как писать код"
+        en: "Software & AI Engineer · Full-Stack · Loves solving real problems",
+        ru: "Software & AI инженер · Full-Stack · Люблю решать реальные задачи"
     },
     location: {
         en: "Saint Petersburg, Russia (ITMO University)",
@@ -88,8 +88,8 @@ export const resume: ResumeData = {
     portfolio: "aris-portfolio.vercel.app",
     portfolioUrl: "https://aris.permiraspb.org",
     summary: {
-        en: "Systems Engineer who treats system design as a first-class skill. I read source code (Postgres, Frappe, vLLM, ChromaDB, Lenis, Anthropic SDKs) to understand how good systems are actually built — then apply that lens to data pipelines, real-time platforms, LLM/RAG systems, and full-stack apps in production. Comfortable across Go, Python, and TypeScript; equally comfortable choosing the boring stack when it's the right call. Active hackathon competitor, technical mentor, and writer about engineering.",
-        ru: "Systems Engineer, который относится к system design как к first-class навыку. Читаю исходники (Postgres, Frappe, vLLM, ChromaDB, Lenis, Anthropic SDK), чтобы понимать, как реально устроены хорошие системы — и применяю этот взгляд к data-пайплайнам, real-time платформам, LLM/RAG-системам и full-stack приложениям в продакшене. Уверенно работаю на Go, Python и TypeScript; так же уверенно выбираю скучный стек, когда это правильно. Активный участник хакатонов, технический ментор, пишу про инженерию."
+        en: "Software and AI engineer who likes solving real problems end-to-end — from a rough idea to software people actually use. I've built and shipped full-stack web apps, AI and RAG systems, data pipelines, and real-time platforms for users across Indonesia, the US, and Russia. I compete in hackathons to sharpen that instinct under real constraints (3rd place at RSHB.Digital, 1st at LKS Data Science) and I enjoy going a level deeper — understanding what happens behind the system, not just the surface. Comfortable across Go, Python, and TypeScript.",
+        ru: "Software- и AI-инженер, который любит решать реальные задачи целиком — от сырой идеи до софта, которым люди реально пользуются. Создавал и запускал full-stack веб-приложения, AI- и RAG-системы, data-пайплайны и real-time платформы для пользователей в Индонезии, США и России. Участвую в хакатонах, чтобы оттачивать чутьё в реальных ограничениях (3 место на РСХБ.Цифра, 1 место на LKS Data Science), и люблю копать на уровень глубже — понимать, что происходит за системой, а не только на поверхности. Уверенно работаю на Go, Python и TypeScript."
     },
     openTo: {
         en: "Currently open to senior engineering roles (Systems / AI / Data / Full-Stack) and freelance engagements. Especially interested in problems where system design matters — distributed services, real-time platforms, LLM infrastructure. Reply within 24 hours.",
@@ -101,6 +101,7 @@ export const resume: ResumeData = {
             "Migrated production analytics from Sheets to AWS Redshift with idempotent loads and dbt-tested marts (~10x scale)",
             "Cut ML retraining latency from ~6h to ~1h via parallelized scheduling and warm-cache reuse",
             "Built RAG production stack — ChromaDB + Gemini + MCP-style tools — live on WhatsApp Business API",
+            "🥉 3rd Place at RSHB.Digital hackathon (NRNU MEPhI, 2026) — AI farmer-marketing platform, beating 29 of 32 teams; concepts headed to production",
             "1st Place — LKS Data Science West Java 2023; active hackathon competitor across Indonesia and Russia"
         ],
         ru: [
@@ -108,6 +109,7 @@ export const resume: ResumeData = {
             "Перевёл production-аналитику с Sheets на AWS Redshift с идемпотентными загрузками и dbt-тестами (~10x масштаб)",
             "Сократил latency ML-переобучения с ~6ч до ~1ч через параллельное планирование и тёплый кэш",
             "Построил production RAG-стек — ChromaDB + Gemini + MCP-инструменты — живой на WhatsApp Business API",
+            "🥉 3 место на хакатоне РСХБ.Цифра (НИЯУ МИФИ, 2026) — AI-платформа маркетинга для фермеров, обошёл 29 из 32 команд; концепты идут в production",
             "1 место — LKS Data Science Западная Ява 2023; активный участник хакатонов Индонезии и России"
         ]
     },
@@ -397,11 +399,13 @@ export const resume: ResumeData = {
     ],
     awards: {
         en: [
+            "🥉 3rd Place — RSHB.Digital Hackathon (Case №1), NRNU MEPhI 2026 — 32 teams, 11 universities",
             "🥇 1st Place — LKS Data Science West Java 2023",
             "🥇 1st Place — NEVTIK Academy Selection",
             "🥈 2nd Place — KKSI Data Science 2021"
         ],
         ru: [
+            "🥉 3 место — Хакатон РСХБ.Цифра (Кейс №1), НИЯУ МИФИ 2026 — 32 команды, 11 вузов",
             "🥇 1 место — LKS Data Science Западная Ява 2023",
             "🥇 1 место — Отбор NEVTIK Academy",
             "🥈 2 место — KKSI Data Science 2021"

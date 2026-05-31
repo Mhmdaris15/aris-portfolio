@@ -72,6 +72,9 @@ AI Systems Engineer with 3+ years shipping production data, automation, and AI s
 
 ## Selected Projects
 
+### Своё Родное — AI Farmer Marketing Calendar *(🥉 RSHB Hackathon, Case №1)*
+AI event-marketing platform for farmers on Rosselkhozbank's svoe-rodnoe.ru. Go (Gin) + React + SurrealDB-native architecture (graph + vector + realtime + AI memory in one engine) + Gemini. A 7-stage pipeline turns an SKU catalog into multi-channel campaigns (push, story, blog, recipe, social) ranked by a deterministic ROI engine. 3rd of 32 teams; concepts headed to production.
+
 ### AI Analytics Copilot *(In Progress)*
 LLM + RAG system that lets non-technical users query business data in plain English. SQL agent for automated query generation, FAISS / Weaviate vector retrieval, FastAPI backend, and a self-correcting query loop based on execution feedback.
 
@@ -131,6 +134,7 @@ Saint Petersburg, Russia
 
 ## Awards & Achievements
 
+- 🥉 **3rd Place — RSHB.Digital Hackathon (Case №1)**, NRNU MEPhI 2026 — 32 teams from 11 universities; winning concepts headed to production
 - 🥇 **1st Place** — LKS Data Science West Java 2023
 - 🥇 **1st Place** — NEVTIK Academy Selection
 - 🥈 **2nd Place** — KKSI Data Science 2021

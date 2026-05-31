@@ -81,7 +81,7 @@ const About = () => {
 
         <div className="about-reading">
           <span className="about-section-label">
-            {locale === "ru" ? "Сейчас изучаю" : "Currently studying"}
+            {locale === "ru" ? "Хакатоны и награды" : "Hackathons & wins"}
           </span>
           <ul className="about-reading-list">
             {a.reading.map((item, i) => (
